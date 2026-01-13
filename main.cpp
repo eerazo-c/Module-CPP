@@ -51,7 +51,8 @@ int main()
 	return 0;
 }
 */
-
+//interacion con la consola con int
+/*
 int main()
 {
 	int n1;
@@ -67,4 +68,38 @@ int main()
 	std::cout << "La suma es: " << suma;
 
 	return (0);
+}*/
+
+//probando char desde la consola
+/*
+int main()
+{
+	std::string nombre;
+
+	std::cout << "Escribe tu nombre: ";
+	std::cin >> nombre;
+	std::cout << "Hola " << nombre << std::endl;
+	std::cout << "tu correo es: eli@gmail.com" << std::endl;
+
+	return 0;
+}
+*/
+
+int main()
+{
+	std::string nombre;
+	std::string apellido;
+	std::string correo;
+
+	std::cout << "Escribe tu nombre para generar un correo: ";
+	std::cin >> nombre;
+
+	std::cout << "Escribe tu apellido para generar un correo: ";
+	std::cin >> apellido;
+
+
+	correo = nombre + apellido + "@student.com";
+	std::cout << "Tu correo es: " << correo << std::endl;
+
+	return 0;
 }
