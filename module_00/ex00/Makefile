@@ -1,0 +1,58 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: elerazo- <marvin@42.fr>                    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2025/04/07 13:27:33 by elerazo-          #+#    #+#              #
+#    Updated: 2026/01/30 14:45:16 by elerazo          ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+NAME		=	megaphone
+CC			=	c++
+CFLAGS		=	-Wall -Wextra -Werror #-std=c++98
+OBJDIR		=	build
+SRCSDIR		=	.
+SRCS		=	megaphone.cpp
+
+OBJS		=	$(addprefix $(OBJDIR)/, ${SRCS:.cpp=.o})
+
+PURPLE		=	\033[0;33m
+BLUE		=	\033[0;33m
+GREEN		=	\033[0;32m
+RED			=	\033[0;31m
+RESET		=	\033[m
+
+all: banner $(NAME)
+
+banner:
+	@printf "%b" "$(PURPLE)\n"
+	@echo "# ========================== #"
+	@echo "#            C++             #"
+	@echo "#        by: elerazo-        #"
+	@echo "# ========================== #"
+	@printf "%b" "\n$(RESET)"
+
+$(OBJS): $(OBJDIR)/%.o : $(SRCSDIR)/%.cpp Makefile | $(OBJDIR)
+	@printf "%-42b" "$(BLUE)compiling... $(PURPLE)$(@F)$(RESET)\n"
+	@$(CC) $(CFLAGS) -c $< -o $@
+
+$(OBJDIR):
+	@-mkdir $(OBJDIR)
+
+$(NAME): $(OBJS)
+	@printf "%-42b" "$(BLUE)linking... $(PURPLE)$(@F)$(RESET)\n"
+	@$(CC) $(CFLAGS) $^ -o $@
+
+fclean: banner clean
+	@printf "%b" "$(BLUE)$(@)ing...$(RESET)\n"
+	@rm -rf $(NAME)
+
+clean: banner
+	@printf "%b" "$(BLUE)$(@)ing...$(RESET)\n"
+	@rm -rf $(OBJDIR)
+
+re:    fclean all
+
+.PHONY: all banner clean fclean re
