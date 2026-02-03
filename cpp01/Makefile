@@ -9,12 +9,12 @@
 #    Updated: 2026/01/30 14:45:16 by elerazo          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
-NAME		=	megaphone
+NAME		=	myphonebook
 CC			=	c++
-CFLAGS		=	-Wall -Wextra -Werror #-std=c++98
+CFLAGS		=	-Wall -Wextra -Werror -std=c++98 -I inc/
 OBJDIR		=	build
-SRCSDIR		=	.
-SRCS		=	megaphone.cpp
+SRCSDIR		=	src
+SRCS		=	main.cpp //PhoneBook.cpp Contact.cpp
 
 OBJS		=	$(addprefix $(OBJDIR)/, ${SRCS:.cpp=.o})
 
@@ -34,7 +34,7 @@ banner:
 	@echo "# ========================== #"
 	@printf "%b" "\n$(RESET)"
 
-$(OBJS): $(OBJDIR)/%.o : $(SRCSDIR)/%.cpp Makefile | $(OBJDIR)
+$(OBJS): $(OBJDIR)/%.o : $(SRCSDIR)/%.cpp Makefile inc/PhoneBook.hpp inc/Contact.hpp | $(OBJDIR)
 	@printf "%-42b" "$(BLUE)compiling... $(PURPLE)$(@F)$(RESET)\n"
 	@$(CC) $(CFLAGS) -c $< -o $@
 
