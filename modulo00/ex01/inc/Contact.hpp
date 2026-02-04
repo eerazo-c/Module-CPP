@@ -6,7 +6,7 @@
 /*   By: elerazo- <elerazo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/03 17:14:12 by elerazo-          #+#    #+#             */
-/*   Updated: 2026/02/03 17:14:13 by elerazo-         ###   ########.fr       */
+/*   Updated: 2026/02/04 23:29:51 by elerazo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #pragma once
@@ -17,7 +17,7 @@
 //#include "phone.hpp"
 #include <iostream>
 #include <string>
-
+#include <iomanip>
 class Contact{
 	private:
 		std::string firstName;

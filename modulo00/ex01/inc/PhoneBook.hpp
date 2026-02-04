@@ -6,7 +6,7 @@
 /*   By: elerazo- <elerazo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/03 17:13:21 by elerazo-          #+#    #+#             */
-/*   Updated: 2026/02/03 17:13:55 by elerazo-         ###   ########.fr       */
+/*   Updated: 2026/02/04 23:52:09 by elerazo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #pragma once //para que lo ejecute solo una vez
@@ -18,6 +18,7 @@
 #include <iostream>
 #include <stdio.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include "Contact.hpp"
 
 class PhoneBook {
@@ -30,7 +31,7 @@ class PhoneBook {
 		PhoneBook();
 		void addContact();
 		void displayContact();
-		void displayContactDetails();
+		void displayContactDetails(int index);
 		std::string formatLongS(std::string s);
 };
 

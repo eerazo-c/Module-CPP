@@ -6,7 +6,7 @@
 /*   By: elerazo- <elerazo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/03 17:07:06 by elerazo-          #+#    #+#             */
-/*   Updated: 2026/02/04 22:48:18 by elerazo          ###   ########.fr       */
+/*   Updated: 2026/02/04 23:52:25 by elerazo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "PhoneBook.hpp"
@@ -102,3 +102,65 @@ void PhoneBook::addContact()
 		addContact();
 	}
 }
+
+void PhoneBook::displayContact()
+{
+	std::string imput;
+	int index;
+
+	if (ContactNum == 0)
+	{
+		std::cout << "No contcat no display." << std::endl;
+		return ;
+	}
+	
+	std::cout << "------------------------------------------" << std::endl;
+	std::cout << "Index | First Name | Last Name | Nickname " << std::endl;
+	std::cout << "------------------------------------------" << std::endl;
+
+	for (int i = 0; i < ContactNum; i++)
+	{
+		std::cout << "(" << i + 1 << ")   | " 
+            << std::setw(10) << formatLongS(_contact[i].getfirstName()) << " | "
+            << std::setw(10) << formatLongS(_contact[i].getlastName()) << "  | "
+            << std::setw(10) << formatLongS(_contact[i].getnickname()) << std::endl;
+	}
+
+	std::cout << "Enter the index of the contact to view details: " << std::endl;
+	std::getline(std::cin, imput);
+
+	if (imput.empty() || imput.length() != 1 || imput.find_first_not_of("0123456789") != std::string::npos)
+    {
+        std::cout << "Invalid index." << std::endl;
+        return;
+    }
+    index = atoi(imput.c_str());
+
+    if (index < 1 || ContactNum < index)
+    {
+        std::cout << "Invalid index." << std::endl;
+        return;
+    }
+
+    displayContactDetails(index - 1);
+}
+
+void PhoneBook::displayContactDetails(int index)
+{
+    std::cout << "First Name: " << _contact[index].getfirstName() << std::endl;
+    std::cout << "Last Name: " << _contact[index].getlastName() << std::endl;
+    std::cout << "Nickname: " << _contact[index].getnickname() << std::endl;
+    std::cout << "Phone Number: " << _contact[index].getphoneNumber() << std::endl;
+    std::cout << "Darkest Secret: " << _contact[index].getdarkestSecret() << std::endl;
+}
+
+std::string PhoneBook::formatLongS(std::string s)
+{
+	if (s.length() > 10)
+		return (s.substr(0, 9) + ".");
+	else
+		return (s);
+}
+
+//aqui
+

@@ -6,7 +6,7 @@
 /*   By: elerazo- <elerazo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/03 17:07:55 by elerazo-          #+#    #+#             */
-/*   Updated: 2026/02/04 22:55:50 by elerazo          ###   ########.fr       */
+/*   Updated: 2026/02/04 23:26:00 by elerazo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "Contact.hpp"
@@ -29,13 +29,14 @@ int main(void)
 		{
 			phoneBook.addContact();
 		}
-/*		else if(command == "SEARCH")
+		else if(command == "SEARCH")
 		{
 			phoneBook.displayContact();
 		}
+
 		else if(command == "EXIT")
 			break ;
-*/
+
 		else 
 			std::cout << "Invalid command :(" << std::endl;
 	}
