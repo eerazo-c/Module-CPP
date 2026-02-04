@@ -14,7 +14,7 @@ CC			=	c++
 CFLAGS		=	-Wall -Wextra -Werror -std=c++98 -I inc/
 OBJDIR		=	build
 SRCSDIR		=	src
-SRCS		=	main.cpp //PhoneBook.cpp Contact.cpp
+SRCS		=	main.cpp PhoneBook.cpp Contact.cpp
 
 OBJS		=	$(addprefix $(OBJDIR)/, ${SRCS:.cpp=.o})
 
