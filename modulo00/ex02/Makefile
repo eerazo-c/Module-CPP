@@ -9,12 +9,12 @@
 #    Updated: 2026/01/30 14:45:16 by elerazo          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
-NAME		=	account
+NAME		=	Account
 CC			=	c++
 CFLAGS		=	-Wall -Wextra -Werror -std=c++98
 OBJDIR		=	build
 SRCSDIR		=	.
-SRCS		=	Account.cpp
+SRCS		=	Account.cpp tests.cpp
 
 OBJS		=	$(addprefix $(OBJDIR)/, ${SRCS:.cpp=.o})
 
