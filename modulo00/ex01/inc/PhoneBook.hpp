@@ -23,7 +23,7 @@
 
 class PhoneBook {
 	private:
-		static const int contactMax = 8;
+		static const int contactMax = 2;
 		Contact _contact[contactMax];
 		int ContactNum;
 

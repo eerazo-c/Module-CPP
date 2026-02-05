@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 #include "Contact.hpp"
 #include "PhoneBook.hpp"
+#include <ostream>
 #include <string>
 
 int main(void)
@@ -19,12 +20,15 @@ int main(void)
 	std::string command;
 	bool isActive = true;
 
-;	while (isActive)
+	while (isActive)
 	{
 		std::cout << "Welcome to you PhoneBook 📞" << std::endl;
 		std::cout << "Enter a command (ADD ✍️, SEARCH 🔍, EXIT 🚶): ";
-		std::getline(std::cin, command);
-
+		if (!std::getline(std::cin, command))
+		{
+			std::cout << std::endl;
+			break ;
+		}
 		if(command == "ADD")
 		{
 			phoneBook.addContact();
@@ -40,6 +44,6 @@ int main(void)
 		else 
 			std::cout << "Invalid command :(" << std::endl;
 	}
-	std::cout << "Bye 👋";
+	std::cout << "Bye 👋" << std::endl;
 	return (0);
 }
