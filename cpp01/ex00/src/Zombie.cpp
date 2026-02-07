@@ -6,7 +6,20 @@
 /*   By: elerazo- <elerazo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/05 19:33:26 by elerazo-          #+#    #+#             */
-/*   Updated: 2026/02/05 19:33:29 by elerazo-         ###   ########.fr       */
+/*   Updated: 2026/02/07 17:06:11 by elerazo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "Zombie.hpp"
 
+Zombie::Zombie(std::string name){
+	this->name = name;
+}
+
+Zombie::~Zombie(){
+	std::cout << "The zombie is die" << std::endl;
+}
+
+void Zombie::announce( void )
+{
+	std::cout << this->name << ": BraiiiiiiinnnzzzZ..." << std::endl;
+}

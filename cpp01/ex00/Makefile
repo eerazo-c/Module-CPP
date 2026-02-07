@@ -6,7 +6,7 @@
 #    By: elerazo- <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/07 13:27:33 by elerazo-          #+#    #+#              #
-#    Updated: 2026/01/30 14:45:16 by elerazo          ###   ########.fr        #
+#    Updated: 2026/02/07 16:26:09 by elerazo          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 NAME		=	brainzz
@@ -14,7 +14,7 @@ CC			=	c++
 CFLAGS		=	-Wall -Wextra -Werror -std=c++98 -I inc/
 OBJDIR		=	build
 SRCSDIR		=	src
-SRCS		=	main.cpp 
+SRCS		=	main.cpp newZombie.cpp randomChump.cpp Zombie.cpp
 
 OBJS		=	$(addprefix $(OBJDIR)/, ${SRCS:.cpp=.o})
 
@@ -34,7 +34,7 @@ banner:
 	@echo "# ========================== #"
 	@printf "%b" "\n$(RESET)"
 
-$(OBJS): $(OBJDIR)/%.o : $(SRCSDIR)/%.cpp Makefile inc/PhoneBook.hpp inc/Contact.hpp | $(OBJDIR)
+$(OBJS): $(OBJDIR)/%.o : $(SRCSDIR)/%.cpp Makefile inc/Zombie.hpp | $(OBJDIR)
 	@printf "%-42b" "$(BLUE)compiling... $(PURPLE)$(@F)$(RESET)\n"
 	@$(CC) $(CFLAGS) -c $< -o $@
 

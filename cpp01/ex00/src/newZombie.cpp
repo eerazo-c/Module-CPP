@@ -6,16 +6,15 @@
 /*   By: elerazo- <elerazo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/05 19:37:23 by elerazo-          #+#    #+#             */
-/*   Updated: 2026/02/05 19:38:51 by elerazo-         ###   ########.fr       */
+/*   Updated: 2026/02/07 16:40:08 by elerazo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "Zombie.h"
 #include "Zombie.hpp"
+//new es un operador que crea memoria dinamica
 
-Zombie* newZombie( std::string name )
+Zombie* newZombie(std::string name)
 {
-	Zombie* zom = new(name);
+	Zombie* zombieDirec = new Zombie(name);
 
-	delete zom;
-	zom = NULL;
+	return zombieDirec;
 }
