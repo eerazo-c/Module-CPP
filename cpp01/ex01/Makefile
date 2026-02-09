@@ -6,10 +6,10 @@
 #    By: elerazo- <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/07 13:27:33 by elerazo-          #+#    #+#              #
-#    Updated: 2026/02/07 21:25:24 by elerazo          ###   ########.fr        #
+#    Updated: 2026/02/09 19:46:58 by elerazo          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
-NAME		=	hordeOfZoombie
+NAME		=	hordeZoombie
 CC			=	c++
 CFLAGS		=	-Wall -Wextra -Werror -std=c++98 -I inc/
 OBJDIR		=	build
