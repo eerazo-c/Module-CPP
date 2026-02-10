@@ -9,8 +9,11 @@
 /*   Updated: 2026/02/09 22:32:58 by elerazo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "Weapon.hpp"
+#include "HumanA.hpp"
+#include "HumanB.hpp"
 
-int main()
+int main(void)
 {
 	{
 		Weapon club = Weapon("crude spiked club");
