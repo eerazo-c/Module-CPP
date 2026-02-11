@@ -1,25 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Sed.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: elerazo- <elerazo-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: elerazo <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/10 20:05:05 by elerazo-          #+#    #+#             */
-/*   Updated: 2026/02/12 00:24:56 by elerazo          ###   ########.fr       */
+/*   Created: 2026/02/12 00:13:19 by elerazo           #+#    #+#             */
+/*   Updated: 2026/02/12 00:14:20 by elerazo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "Sed.hpp"
+#pragma once
 
-int main(int ac, char **av)
-{
-	(void)av;
-	if (ac == 2)
-	{
-		std::ifstream file("archivo.txt");
-//		std::ofstream out("archivo.txt");
-	}
-	else
-		std::cout << "\033[31m" "Error opening" << std::endl; 
-	return 0;
-}
+#ifndef SED_HPP
+# define SED_HPP
+
+#include <iostream>
+#include <fstream>
+
+#endif

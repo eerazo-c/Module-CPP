@@ -6,7 +6,7 @@
 #    By: elerazo- <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/07 13:27:33 by elerazo-          #+#    #+#              #
-#    Updated: 2026/02/09 20:54:36 by elerazo          ###   ########.fr        #
+#    Updated: 2026/02/12 00:16:14 by elerazo          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 NAME		=	sedisForLoser
@@ -34,8 +34,7 @@ banner:
 	@echo "# ========================== #"
 	@printf "%b" "\n$(RESET)"
 
-$(OBJS): $(OBJDIR)/%.o : $(SRCSDIR)/%.cpp Makefile inc/Weapon.hpp inc/HumanA.hpp \
-	inc/HumanB.hpp | $(OBJDIR)
+$(OBJS): $(OBJDIR)/%.o : $(SRCSDIR)/%.cpp Makefile inc/Sed.hpp | $(OBJDIR)
 	@printf "%-42b" "$(BLUE)compiling... $(PURPLE)$(@F)$(RESET)\n"
 	@$(CC) $(CFLAGS) -c $< -o $@
 
