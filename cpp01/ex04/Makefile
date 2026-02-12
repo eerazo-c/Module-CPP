@@ -6,7 +6,7 @@
 #    By: elerazo- <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/07 13:27:33 by elerazo-          #+#    #+#              #
-#    Updated: 2026/02/12 00:16:14 by elerazo          ###   ########.fr        #
+#    Updated: 2026/02/12 19:59:54 by elerazo          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 NAME		=	sedisForLoser
@@ -14,7 +14,7 @@ CC			=	c++
 CFLAGS		=	-Wall -Wextra -Werror -std=c++98 -I inc/
 OBJDIR		=	build
 SRCSDIR		=	src
-SRCS		=	main.cpp 
+SRCS		=	main.cpp redfile.cpp
 
 OBJS		=	$(addprefix $(OBJDIR)/, ${SRCS:.cpp=.o})
 

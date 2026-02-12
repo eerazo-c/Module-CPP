@@ -6,7 +6,7 @@
 /*   By: elerazo- <elerazo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 20:05:05 by elerazo-          #+#    #+#             */
-/*   Updated: 2026/02/12 18:08:48 by elerazo          ###   ########.fr       */
+/*   Updated: 2026/02/12 23:09:06 by elerazo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "Sed.hpp"
@@ -21,7 +21,7 @@ int main(int ac, char **av)
 
 	std::string filename = av[1];
 	std::string s1 = av[2];
-	std::string s2 = av[2];
+	std::string s2 = av[3];
 
 	if (s1.empty())
 	{
@@ -37,6 +37,9 @@ int main(int ac, char **av)
 		return 1;
 	}
 
+	std::string conte = redFile(file);
+	std::string remplaced = remplaceAll(conte, s1, s2);
+	
 	//crea nombre de archivo de salida
 	std::string out_filename = filename + ".replace";
 
@@ -48,6 +51,9 @@ int main(int ac, char **av)
 		return 1;
 	}
 
+	out << remplaced;
+	file.close();
+	out.close();
 	std::cout << "\033[32m" "Files opened successfully" << std::endl; 
 	return 0;
 }
