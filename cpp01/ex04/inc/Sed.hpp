@@ -6,7 +6,7 @@
 /*   By: elerazo <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/12 00:13:19 by elerazo           #+#    #+#             */
-/*   Updated: 2026/02/12 00:14:20 by elerazo          ###   ########.fr       */
+/*   Updated: 2026/02/12 17:57:34 by elerazo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #pragma once
@@ -16,5 +16,6 @@
 
 #include <iostream>
 #include <fstream>
+#include <string>
 
 #endif

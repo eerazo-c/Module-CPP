@@ -6,20 +6,48 @@
 /*   By: elerazo- <elerazo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 20:05:05 by elerazo-          #+#    #+#             */
-/*   Updated: 2026/02/12 00:24:56 by elerazo          ###   ########.fr       */
+/*   Updated: 2026/02/12 18:08:48 by elerazo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "Sed.hpp"
 
 int main(int ac, char **av)
 {
-	(void)av;
-	if (ac == 2)
-	{
-		std::ifstream file("archivo.txt");
-//		std::ofstream out("archivo.txt");
+	if (ac != 4)
+	{		
+		std::cout << "\033[31m" "Error" << std::endl;
+		return 1;
 	}
-	else
-		std::cout << "\033[31m" "Error opening" << std::endl; 
+
+	std::string filename = av[1];
+	std::string s1 = av[2];
+	std::string s2 = av[2];
+
+	if (s1.empty())
+	{
+		std::cout << "\033[31m" "Error: s1 is empty" << std::endl; 
+		return 1;
+	}
+
+	//abrir archivo de entrada
+	std::ifstream file(filename.c_str());
+	if (!file.is_open())
+	{
+		std::cout << "\033[31m" "Error: cannot open imput file " << std::endl;
+		return 1;
+	}
+
+	//crea nombre de archivo de salida
+	std::string out_filename = filename + ".replace";
+
+	//abre el archivo de salida
+	std::ofstream out(out_filename.c_str());
+	if (!out.is_open())
+	{
+		std::cout << "\033[31m" "Error: cannot created output file" << std::endl;
+		return 1;
+	}
+
+	std::cout << "\033[32m" "Files opened successfully" << std::endl; 
 	return 0;
 }
