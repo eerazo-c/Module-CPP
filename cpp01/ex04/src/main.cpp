@@ -6,7 +6,7 @@
 /*   By: elerazo- <elerazo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 20:05:05 by elerazo-          #+#    #+#             */
-/*   Updated: 2026/02/12 23:20:30 by elerazo          ###   ########.fr       */
+/*   Updated: 2026/02/12 23:24:07 by elerazo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "Sed.hpp"
@@ -51,7 +51,9 @@ int main(int ac, char **av)
 		return 1;
 	}
 
+	//escribir el texto dentro del archivo de salida
 	out << remplaced;
+
 	file.close();
 	out.close();
 
