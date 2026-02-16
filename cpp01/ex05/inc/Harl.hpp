@@ -3,29 +3,34 @@
 /*                                                        :::      ::::::::   */
 /*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: elerazo <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: elerazo- <elerazo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/12 23:26:57 by elerazo           #+#    #+#             */
-/*   Updated: 2026/02/12 23:34:03 by elerazo          ###   ########.fr       */
+/*   Created: 2026/02/16 12:07:51 by elerazo-          #+#    #+#             */
+/*   Updated: 2026/02/16 12:08:30 by elerazo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #pragma once
 
-#ifndef HARL_HPP
-#define HARL_HPP
+#ifndef HARL_H
+#define HARL_H
 
 #include <iostream>
+#include <string>
+#include <ostream>
 
 class Harl
 {
-	private:
-		void debug( void );
-		void info( void );
-		void warning( void );
-		void error( void );
+    private:
+        void debug( void );
+        void info( void );
+        void warning( void );
+        void error( void );
 
-	public:
-	void complain( std::string level );
-}
+    public:
+        Harl();
+        ~Harl();
+
+    void complain(std::string level);
+};
 
 #endif
