@@ -50,6 +50,38 @@ std::ostream &operator<<( std::ostream &out, Fixed const &obj)
 	return (out << obj.toFloat());
 }
 
+/*NEW*/
+
+bool Fixed::operator>(const Fixed &obj) const
+{
+	return (this->fixedPointer > obj.getRawBits());
+}
+
+bool Fixed::operator<(const Fixed &obj) const
+{
+	return (this->fixedPointer > obj.getRawBits());
+}
+
+bool Fixed::operator>=(const Fixed &obj) const
+{
+	return (this->fixedPointer > obj.getRawBits());
+}
+
+bool Fixed::operator<=(const Fixed &obj) const
+{
+	return (this->fixedPointer > obj.getRawBits());
+}
+
+bool Fixed::operator==(const Fixed &obj) const
+{
+	return (this->fixedPointer > obj.getRawBits());
+}
+
+bool Fixed::operator!=(const Fixed &obj) const
+{
+	return (this->fixedPointer > obj.getRawBits());
+}
+
 /*Desconstructor*/
 
 Fixed::~Fixed(){
