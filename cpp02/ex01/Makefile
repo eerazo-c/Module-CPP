@@ -9,7 +9,7 @@
 #    Updated: 2026/02/07 20:38:26 by elerazo          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
-NAME		=	orthodox
+NAME		=	towards
 CC			=	c++
 CFLAGS		=	-Wall -Wextra -Werror -std=c++98 -I inc/
 OBJDIR		=	build

@@ -11,9 +11,8 @@
 /* ************************************************************************** */
 #include "Fixed.hpp"
 
-//contrecutores
 Fixed::Fixed(){
-	//this->fixedPointer = 0;
+	this->fixedPointer = 0;
 	std::cout << "Default constructor called" << std::endl;
 }
 
@@ -26,13 +25,14 @@ Fixed::Fixed(const Fixed &obj)
 
 Fixed::Fixed(const int _fixedPointer){
 	std::cout << "Int constructor called" << std::endl;
+	this->fixedPointer = _fixedPointer << this->RawBits;
 }
 
 Fixed::Fixed(const float _fixedPointer){
-	std::cout << "float constructor called" << std::endl;
+	std::cout << "Float constructor called" << std::endl;
+	this->fixedPointer = roundf(_fixedPointer * (1 << this->RawBits));
 }
 
-//operadores
 Fixed &Fixed::operator=(const Fixed &obj)
 {
 	std::cout << "Copy assignment operator called" << std::endl;
@@ -47,16 +47,12 @@ std::ostream &operator<<( std::ostream &out, Fixed const &obj)
 	return (out << obj.toFloat());
 }
 
-
-//destructor
 Fixed::~Fixed(){
 	std::cout << "Desconstructor called" << std::endl;
 }
 
-//funciones miebros
 int Fixed::getRawBits(void) const
 {
-	//std::cout << "getRawBits member function called" << std::endl;
 	return this->fixedPointer;
 }
 
@@ -65,10 +61,12 @@ void Fixed::setRawBits(int const raw)
 	this->fixedPointer = raw;
 }
 
-float Fixed::toFloat(void) const{
-
+float Fixed::toFloat(void) const
+{
+	return static_cast<float>(this->fixedPointer) / (1 << this->RawBits);
 }
 
-int Fixed::toInt(void) const{
-
+int Fixed::toInt(void) const
+{
+	return (this->fixedPointer) / (1 << this->RawBits);
 }

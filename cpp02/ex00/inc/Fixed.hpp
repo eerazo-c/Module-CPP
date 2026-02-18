@@ -27,7 +27,7 @@ class Fixed{
 		Fixed &operator=(const Fixed &obj);
 		~Fixed();
 
-		int getRawBits( void ) const; //cuando es const es que no va moficar atribuss de la clase
+		int getRawBits( void ) const;
 		void setRawBits( int const raw );
 };
 
