@@ -19,13 +19,15 @@
 class Fixed{
 	private:
 		int fixedPointer;
-		static const int RawBits;
+		static const int RawBits = 8;
 
 	public:
 		Fixed();
+		Fixed(const Fixed& obj);
+		Fixed &operator=(const Fixed &obj);
 		~Fixed();
 
-		int getRawBits( void ) const;
+		int getRawBits( void ) const; //cuando es const es que no va moficar atribuss de la clase
 		void setRawBits( int const raw );
 };
 
