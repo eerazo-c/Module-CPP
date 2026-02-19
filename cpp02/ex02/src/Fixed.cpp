@@ -15,31 +15,24 @@
 
 Fixed::Fixed(){
 	this->fixedPointer = 0;
-	std::cout << "Default constructor called" << std::endl;
 }
 
 Fixed::Fixed(const Fixed &obj)
 {
-	std::cout << "Copy constructor called" << std::endl;
-	
 	*this = obj;
 }
 
 Fixed::Fixed(const int _fixedPointer){
-	std::cout << "Int constructor called" << std::endl;
 	this->fixedPointer = _fixedPointer << this->RawBits;
 }
 
 Fixed::Fixed(const float _fixedPointer){
-	std::cout << "Float constructor called" << std::endl;
 	this->fixedPointer = roundf(_fixedPointer * (1 << this->RawBits));
 }
 
 /*Contructor operador*/
 Fixed &Fixed::operator=(const Fixed &obj)
 {
-	std::cout << "Copy assignment operator called" << std::endl;
-
 	if (this != &obj)
 		this->fixedPointer = obj.getRawBits();
 	return (*this);
@@ -64,28 +57,74 @@ bool Fixed::operator<(const Fixed &obj) const
 
 bool Fixed::operator>=(const Fixed &obj) const
 {
-	return (this->fixedPointer > obj.getRawBits());
+	return (this->fixedPointer >= obj.getRawBits());
 }
 
 bool Fixed::operator<=(const Fixed &obj) const
 {
-	return (this->fixedPointer > obj.getRawBits());
+	return (this->fixedPointer <= obj.getRawBits());
 }
 
 bool Fixed::operator==(const Fixed &obj) const
 {
-	return (this->fixedPointer > obj.getRawBits());
+	return (this->fixedPointer == obj.getRawBits());
 }
 
 bool Fixed::operator!=(const Fixed &obj) const
 {
-	return (this->fixedPointer > obj.getRawBits());
+	return (this->fixedPointer != obj.getRawBits());
+}
+
+Fixed	Fixed::operator+(const Fixed &obj) const 
+{
+	return (this->toFloat() + obj.toFloat());
+}
+
+Fixed	Fixed::operator-(const Fixed &obj) const 
+{
+	return (this->toFloat() - obj.toFloat());
+}
+
+Fixed	Fixed::operator*(const Fixed &obj) const 
+{
+	return (this->toFloat() * obj.toFloat());
+}
+
+Fixed	Fixed::operator/(const Fixed &obj) const 
+{
+	return (this->toFloat() / obj.toFloat());
+}
+
+Fixed	&Fixed::operator++( void )
+{
+	++this->fixedPointer;
+	return (*this);
+}
+
+Fixed	&Fixed::operator--( void )
+{
+	--this->fixedPointer;
+	return (*this);
+}
+
+Fixed	Fixed::operator++( int )
+{
+	Fixed temp = *this;
+   ++*this;
+   return (temp);
+}
+
+Fixed	Fixed::operator--( int )
+{
+	Fixed temp = *this;
+   --*this;
+   return (temp);
 }
 
 /*Desconstructor*/
 
 Fixed::~Fixed(){
-	std::cout << "Desconstructor called" << std::endl;
+
 }
 
 /*Funtion members*/
@@ -107,4 +146,14 @@ float Fixed::toFloat(void) const
 int Fixed::toInt(void) const
 {
 	return (this->fixedPointer) / (1 << this->RawBits);
+}
+
+Fixed &Fixed::max(Fixed &a, Fixed &b)
+{
+	return (a.getRawBits() < b.getRawBits() ? b : a);
+}
+
+const Fixed &Fixed::max(const Fixed &a, const Fixed &b)
+{
+	return (a.getRawBits() < b.getRawBits() ? b : a);
 }

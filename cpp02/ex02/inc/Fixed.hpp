@@ -32,30 +32,32 @@ class Fixed{
 		Fixed(const float _fixedPointer);
 
 		//constructor overland:
-		//
+		
 		//operadores contructor
-		bool &operator>(const Fixed &obj);
-		bool &operator<(const Fixed &obj);
-		bool &operator>=(const Fixed &obj);
-		bool &operator<=(const Fixed &obj);
-		bool &operator==(const Fixed &obj);
-		bool &operator!=(const Fixed &obj);
+		bool operator>(const Fixed &obj)const;
+		bool operator<(const Fixed &obj)const;
+		bool operator>=(const Fixed &obj)const;
+		bool operator<=(const Fixed &obj)const;
+		bool operator==(const Fixed &obj)const;
+		bool operator!=(const Fixed &obj)const;
  
-		Fixed &operator+(const Fixed &obj);
-		Fixed &operator-(const Fixed &obj);
-		Fixed &operator*(const Fixed &obj);
-		Fixed &operator/(const Fixed &obj);
+		Fixed operator+(const Fixed &obj)const;
+		Fixed operator-(const Fixed &obj)const;
+		Fixed operator*(const Fixed &obj)const;
+		Fixed operator/(const Fixed &obj)const;
 
-		Fixed &operator++(void);
-		Fixed &operator--(int);
-		Fixed operator++(int);
-		Fixed operator--(void);
+		Fixed &operator++(void); //pre-increment
+		Fixed &operator--(void);
+		Fixed operator++(int);//post-increment
+		Fixed operator--(int);
 
+		/*funtion min/max*/
 		static Fixed &min(Fixed &a, Fixed &b);
-		static const Fixed &min(Fixed &a, Fixed &b);
+		static const Fixed &min(const Fixed &a, const Fixed &b);
 		static Fixed &max(Fixed &a, Fixed &b);
-		static const Fixed &max(Fixed &a, Fixed &b);
+		static const Fixed &max(const Fixed &a, const Fixed &b);
 
+		/*Getters/Setters*/
 		int getRawBits( void ) const;
 		void setRawBits( int const raw );
 		float toFloat( void ) const;
