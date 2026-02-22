@@ -13,7 +13,7 @@
 
 ScavTrap::ScavTrap(std::string _Name) : ClapTrap(_Name)
 {
-	this->Name = _Name;
+//	this->Name = _Name;
 
 	this->HitPoints = 100;
 	this->EnergyPoints = 50;
@@ -23,7 +23,16 @@ ScavTrap::ScavTrap(std::string _Name) : ClapTrap(_Name)
 }
 
 ScavTrap::~ScavTrap(){	
-	std::cout << "ScavTrap " << this->Name << " Desconstructor Called" << std::endl;
+	std::cout << "ScavTrap " " Desconstructor Called" << std::endl;
+}
+
+void ScavTrap::attack(const std::string& target)
+{
+    if (EnergyPoints <= 0 || HitPoints <= 0)
+        return;
+
+    EnergyPoints--;
+    std::cout << "ScavTrap " << Name << " attacks " << target << ", causing " << Attackdamage << " points of damage!" << std::endl;
 }
 
 void ScavTrap::guardGate()
