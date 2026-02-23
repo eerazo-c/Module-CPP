@@ -23,7 +23,7 @@ ScavTrap::ScavTrap(std::string _Name) : ClapTrap(_Name)
 }
 
 ScavTrap::~ScavTrap(){	
-	std::cout << "ScavTrap " << this->Name << " Desconstructor Called" << std::endl;
+	std::cout << "ScavTrap " << this->Name << " Destructor Called" << std::endl;
 }
 
 void ScavTrap::attack(const std::string& target)

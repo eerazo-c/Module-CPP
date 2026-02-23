@@ -23,7 +23,7 @@ FragTrap::FragTrap(std::string _Name) : ClapTrap(_Name)
 }
 
 FragTrap::~FragTrap(){	
-	std::cout << "FragTrap " << this->Name << " Desconstructor Called" << std::endl;
+	std::cout << "FragTrap " << this->Name << " Destructor Called" << std::endl;
 }
 
 void FragTrap::highFivesGuys(void)

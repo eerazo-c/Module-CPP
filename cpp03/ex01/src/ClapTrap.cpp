@@ -22,7 +22,7 @@ ClapTrap::ClapTrap(std::string Name){
 }
 
 ClapTrap::~ClapTrap(){
-	std::cout << "ClapTrap " << this->Name << " Desconstructor called " << std::endl;
+	std::cout << "ClapTrap " << this->Name << " Destructor called " << std::endl;
 }
 
 void ClapTrap::attack(const std::string& target)

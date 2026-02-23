@@ -18,11 +18,11 @@ ClapTrap::ClapTrap(std::string Name){
 	this->EnergyPoints = 10;
 	this->Attackdamage = 0;
 	
-	std::cout << "ClapTrap " << this->Name << " Contructor called" << std::endl;
+	std::cout << "ClapTrap " << this->Name << " Constructor called" << std::endl;
 }
 
 ClapTrap::~ClapTrap(){
-	std::cout << "ClapTrap " << this->Name << " Desconstructor called " << std::endl;
+	std::cout << "ClapTrap " << this->Name << " Destructor called " << std::endl;
 }
 
 void ClapTrap::attack(const std::string& target)
