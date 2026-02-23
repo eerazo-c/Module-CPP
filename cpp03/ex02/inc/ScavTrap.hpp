@@ -1,30 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elerazo- <elerazo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/19 18:15:18 by elerazo-          #+#    #+#             */
-/*   Updated: 2026/02/19 18:15:35 by elerazo-         ###   ########.fr       */
+/*   Created: 2026/02/20 19:03:01 by elerazo-          #+#    #+#             */
+/*   Updated: 2026/02/20 19:03:25 by elerazo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#pragma once
+
+#ifndef SCAVTRAP_HPP
+# define SCAVTRAP_HPP
+
 #include "ClapTrap.hpp"
-#include "ScavTrap.hpp"
+#include <iostream>
+#include <string>
 
-int main()
+class ScavTrap : public ClapTrap
 {
-	ClapTrap Voldemort("Voldemort");
-	ScavTrap Dracula("Dracula");
+	public:
+		ScavTrap(std::string _Name);
+		~ScavTrap();
 
-	Voldemort.attack("Dracula");
-	Dracula.takeDamage(0);
+		void guardGate();
+		void attack(const std::string& target);
+};
 
-	Dracula.attack("Voldemort");
-	Voldemort.takeDamage(20);
-
-	Dracula.guardGate();
-	Dracula.beRepaired(1);
-
-	return (0);
-}
+#endif 

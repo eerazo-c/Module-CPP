@@ -1,30 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elerazo- <elerazo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/19 18:15:18 by elerazo-          #+#    #+#             */
-/*   Updated: 2026/02/19 18:15:35 by elerazo-         ###   ########.fr       */
+/*   Created: 2026/02/23 13:36:14 by elerazo-          #+#    #+#             */
+/*   Updated: 2026/02/23 13:38:55 by elerazo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#pragma once
+
+#ifndef FRAGTRAP_HPP
+# define FRAGTRAP_HPP
+
 #include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
+#include <iostream>
+#include <string>
 
-int main()
+class FragTrap : public ClapTrap
 {
-	ClapTrap Voldemort("Voldemort");
-	ScavTrap Dracula("Dracula");
+	public:
+		FragTrap(std::string _Name);
+		~FragTrap();
 
-	Voldemort.attack("Dracula");
-	Dracula.takeDamage(0);
+		void highFivesGuys(void);
+};
 
-	Dracula.attack("Voldemort");
-	Voldemort.takeDamage(20);
-
-	Dracula.guardGate();
-	Dracula.beRepaired(1);
-
-	return (0);
-}
+#endif 

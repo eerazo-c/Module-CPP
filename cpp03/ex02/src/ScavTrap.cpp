@@ -30,7 +30,7 @@ void ScavTrap::attack(const std::string& target)
 {
     if (this->EnergyPoints == 0)
 	{
-		std::cout << "ScavTrap " << this->Name << " is out of energy!" << std::endl;
+		std::cout << "ClapTrap " << this->Name << " is out of energy!" << std::endl;
         return;
 	}
     std::cout << "ScavTrap " << this->Name << " attacks " << target << ", causing " << Attackdamage << " points of damage!" << std::endl;

@@ -9,35 +9,29 @@
 /*   Updated: 2026/02/20 20:54:20 by elerazo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
-ScavTrap::ScavTrap(std::string _Name) : ClapTrap(_Name)
+FragTrap::FragTrap(std::string _Name) : ClapTrap(_Name)
 {
 	this->Name = _Name;
 
 	this->HitPoints = 100;
-	this->EnergyPoints = 50;
-	this->Attackdamage = 20;
+	this->EnergyPoints = 100;
+	this->Attackdamage = 30;
 
-	std::cout << "ScavTrap " << this->Name << " Constructor Called" << std::endl;
+	std::cout << "FragTrap " << this->Name << " Constructor Called" << std::endl;
 }
 
-ScavTrap::~ScavTrap(){	
-	std::cout << "ScavTrap " << this->Name << " Desconstructor Called" << std::endl;
+FragTrap::~FragTrap(){	
+	std::cout << "FragTrap " << this->Name << " Desconstructor Called" << std::endl;
 }
 
-void ScavTrap::attack(const std::string& target)
+void FragTrap::highFivesGuys(void)
 {
-    if (this->EnergyPoints == 0)
+    if (this->EnergyPoints <= 0)
 	{
-		std::cout << "ScavTrap " << this->Name << " is out of energy!" << std::endl;
+		std::cout << "FragTrap " << this->Name << " is out of energy!" << std::endl;
         return;
 	}
-    std::cout << "ScavTrap " << this->Name << " attacks " << target << ", causing " << Attackdamage << " points of damage!" << std::endl;
-    EnergyPoints -= 1;
-}
-
-void ScavTrap::guardGate()
-{
-	std::cout << "ScavTrap " << this->Name << " ScavTrap is now in Gate keeper mode." << std::endl;
+    std::cout << "High-fives :) " << std::endl;
 }

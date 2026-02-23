@@ -11,20 +11,28 @@
 /* ************************************************************************** */
 #include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
 int main()
 {
 	ClapTrap Voldemort("Voldemort");
 	ScavTrap Dracula("Dracula");
+	FragTrap Lady("Ladygaga");
 
 	Voldemort.attack("Dracula");
 	Dracula.takeDamage(0);
+
+	Voldemort.attack("Ladygaga");
+	Lady.takeDamage(0);
 
 	Dracula.attack("Voldemort");
 	Voldemort.takeDamage(20);
 
 	Dracula.guardGate();
-	Dracula.beRepaired(1);
+	Lady.attack("Dracula");
+	Dracula.takeDamage(30);
+
+	Lady.highFivesGuys();
 
 	return (0);
 }
