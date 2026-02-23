@@ -20,7 +20,6 @@ int main()
 	BlackHole.attack("Isra");
 	BlackHole.takeDamage(8);
 	BlackHole.beRepaired(2);
-	std::cout << std::endl;
 
 	BlackHole.beRepaired(2);
 	BlackHole.takeDamage(4);
