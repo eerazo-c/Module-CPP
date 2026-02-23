@@ -23,9 +23,11 @@ class Animal
 		std::string type;
 
 	public:
+		Animal();
 		Animal(std::string type);
 		~Animal();
 
+		void makeSound(void) const;
 };
 
 #endif

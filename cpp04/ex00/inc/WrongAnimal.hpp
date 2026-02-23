@@ -21,7 +21,7 @@
 class WrongAnimal
 {
 	protected:
-		std::string _type;
+		std::string type;
 
 	public:
 		WrongAnimal();
@@ -37,6 +37,6 @@ class WrongCat : public WrongAnimal
 		~WrongCat();
 		
 		void	makeSound( void ) const;
-}
+};
 
 #endif

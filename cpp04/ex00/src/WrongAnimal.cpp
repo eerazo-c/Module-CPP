@@ -1,30 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   WrongAnimal.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elerazo- <elerazo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/23 14:27:37 by elerazo-          #+#    #+#             */
-/*   Updated: 2026/02/23 14:28:12 by elerazo-         ###   ########.fr       */
+/*   Created: 2026/02/23 18:41:03 by elerazo-          #+#    #+#             */
+/*   Updated: 2026/02/23 18:45:27 by elerazo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#pragma once
+#include "WrongAnimal.hpp"
 
-#ifndef Dog_HPP
-# define Dog_HPP
+WrongAnimal::WrongAnimal(){
+	std::cout << "WrongAnimal Constructor Called" << std::endl;
+}
 
-#include <iostream>
-#include <string>
-#include "Animal.hpp"
+WrongAnimal::~WrongAnimal(){
+	std::cout << "WrongAnimal Destructor Called" << std::endl;
+}
 
-class Dog : public Animal
-{
-	public:
-		Dog();
-		~Dog();
-
-	void makeSound(void) const;
-};
-
-#endif
+void WrongAnimal::makeSound(void) const{
+	std::cout << "WrongAnimal sound" << std::endl;
+}

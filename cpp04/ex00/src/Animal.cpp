@@ -11,12 +11,18 @@
 /* ************************************************************************** */
 #include "Animal.hpp"
 
+Animal::Animal(){
+	this->type = "Animal";
+}
 Animal::Animal(std::string type){
-
+	this->type = type;
+	std::cout << this->type << "Constructor called" << std::endl;
 }
 
-~Animal::Animal(){
-
+Animal::~Animal(){
+	std::cout << "Destructor called" << std::endl;
 }
 
-void
+void Animal::makeSound() const {
+	std::cout << "Animal Sound" << std::endl;
+}

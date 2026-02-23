@@ -14,7 +14,7 @@ CC			=	c++
 CFLAGS		=	-Wall -Wextra -Werror -std=c++98 -I inc/
 OBJDIR		=	build
 SRCSDIR		=	src
-SRCS		=	main.cpp Animal.cpp
+SRCS		=	main.cpp Animal.cpp Cat.cpp Dog.cpp WrongAnimal.cpp
 
 OBJS		=	$(addprefix $(OBJDIR)/, ${SRCS:.cpp=.o})
 
