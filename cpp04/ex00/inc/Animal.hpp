@@ -28,6 +28,7 @@ class Animal
 		~Animal();
 
 		void makeSound(void) const;
+		std::string getType(void) const;
 };
 
 #endif

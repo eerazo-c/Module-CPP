@@ -22,3 +22,7 @@ Cat::~Cat(){
 void Cat::makeSound(void) const{
 	std::cout << "Miau, miuau! 😼" << std::endl;
 }
+
+std::string Cat::getType(void) const{
+	return (this->type);
+}
