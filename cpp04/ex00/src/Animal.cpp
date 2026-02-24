@@ -15,6 +15,7 @@ Animal::Animal(){
 	this->type = "Animal";
 	std::cout << "Animal Constructor Called" << std::endl;
 }
+
 Animal::Animal(std::string type){
 //	this->type = "Animal";
 	this->type = type;
