@@ -11,7 +11,8 @@
 /* ************************************************************************** */
 #include "Dog.hpp"
 
-Dog::Dog(){
+Dog::Dog() : Animal("Dog") {
+	this->type = getType();
 	std::cout << "Dog Constructor called" << std::endl;
 };
 

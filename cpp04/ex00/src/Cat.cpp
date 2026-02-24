@@ -12,6 +12,7 @@
 #include "Cat.hpp"
 
 Cat::Cat() : Animal("Cat"){
+	this->type = getType();
 	std::cout << "Cat Contructor called" << std::endl;
 }
 

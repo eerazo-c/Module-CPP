@@ -13,10 +13,12 @@
 
 Animal::Animal(){
 	this->type = "Animal";
+	std::cout << "Animal Constructor Called" << std::endl;
 }
 Animal::Animal(std::string type){
+//	this->type = "Animal";
 	this->type = type;
-	std::cout << this->type << " Animal Constructor called" << std::endl;
+//	std::cout << "Animal " << " Constructor called" << std::endl;
 }
 
 Animal::~Animal(){
