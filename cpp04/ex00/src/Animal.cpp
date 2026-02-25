@@ -22,6 +22,18 @@ Animal::Animal(std::string type){
 //	std::cout << "Animal " << " Constructor called" << std::endl;
 }
 
+Animal::Animal( const Animal &obj )
+{
+	*this = obj;
+}
+
+Animal	&Animal::operator=( const Animal &obj )
+{
+	if (this != &obj)
+		this->type = obj.getType();
+	return (*this);
+}
+
 Animal::~Animal(){
 	std::cout << "Animal Destructor called" << std::endl;
 }

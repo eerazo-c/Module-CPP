@@ -16,6 +16,18 @@ Dog::Dog() : Animal("Dog") {
 	std::cout << "Dog Constructor called" << std::endl;
 };
 
+Dog::Dog( const Dog &obj ) : Animal::Animal(obj)
+{
+        *this = obj;
+}
+
+Dog &Dog::operator=( const Dog &obj )
+{
+        if (this != &obj)
+                this->type = obj.getType();
+        return(*this);
+}
+
 Dog::~Dog(){
 	std::cout << "Dog Destructor called" << std::endl;
 };

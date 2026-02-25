@@ -24,6 +24,9 @@ class Animal
 
 	public:
 		Animal();
+		Animal(const Animal &obj);
+		Animal &operator=(const Animal &obj);
+	
 		Animal(std::string type);
 		~Animal();
 

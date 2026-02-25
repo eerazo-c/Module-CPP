@@ -12,9 +12,24 @@
 #include "Animal.hpp"
 #include "Cat.hpp"
 #include "Dog.hpp"
+#include "WrongAnimal.hpp"
 
 int main()
 {
+	Animal 				Paco("Paco");
+	Dog					Kenji;
+	Cat					Nala;
+	const WrongAnimal* 	Rini = new WrongCat;
+
+	std::cout << "MY TEST" << std::endl;
+	Paco.makeSound();
+	Kenji.makeSound();
+	Nala.makeSound();
+	Rini->makeSound();
+	
+	std::cout << std::endl ;
+	std::cout << "Subject Original Test" << std::endl;
+
 	const Animal* meta = new Animal();
 	const Animal* j = new Dog();
 	const Animal* i = new Cat();

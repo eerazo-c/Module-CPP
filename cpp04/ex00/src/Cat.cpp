@@ -16,6 +16,18 @@ Cat::Cat() : Animal("Cat"){
 	std::cout << "Cat Contructor called" << std::endl;
 }
 
+Cat::Cat( const Cat &obj ) : Animal::Animal(obj)
+{
+	*this = obj;
+}
+
+Cat &Cat::operator=( const Cat &obj )
+{
+	if (this != &obj)
+		this->type = obj.getType();
+	return(*this);
+}
+
 Cat::~Cat(){
 	std::cout << "Cat Destructor called" << std::endl;
 }

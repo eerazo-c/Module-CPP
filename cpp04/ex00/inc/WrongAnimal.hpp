@@ -25,8 +25,11 @@ class WrongAnimal
 
 	public:
 		WrongAnimal();
+		WrongAnimal(const WrongAnimal &obj);
+		WrongAnimal &operator=(const WrongAnimal &obj);
 		~WrongAnimal();
 
+		std::string getType(void) const;
 		void	makeSound( void ) const;
 };
 
@@ -34,6 +37,8 @@ class WrongCat : public WrongAnimal
 {
 	public:
 		WrongCat();
+		WrongCat(const WrongCat &obj);
+		WrongCat &operator=(const WrongCat &obj);
 		~WrongCat();
 		
 		void	makeSound( void ) const;
