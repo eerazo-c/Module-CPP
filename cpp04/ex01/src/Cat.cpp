@@ -12,23 +12,29 @@
 #include "Cat.hpp"
 
 Cat::Cat() : Animal("Cat"){
-	this->type = getType();
 	std::cout << "Cat Contructor called" << std::endl;
+	this->catBrain = new Brain;
+	this->type = getType();
 }
 
 Cat::Cat( const Cat &obj ) : Animal::Animal(obj)
 {
-	*this = obj;
+	this->type = obj.getType();
+	this->catBrain = new Brain(*(obj.getBrain()));
+	std::cout << "Cat Copy Constructor Called" << std::endl;
 }
 
 Cat &Cat::operator=( const Cat &obj )
 {
-	if (this != &obj)
-		this->type = obj.getType();
-	return(*this);
+	this->type = obj.getType();
+        if (this->catBrain)
+                delete(this->catBrain);
+        this->catBrain = new Brain(*(obj.getBrain()));
+        return (*this);
 }
 
 Cat::~Cat(){
+	delete this->catBrain;
 	std::cout << "Cat Destructor called" << std::endl;
 }
 
@@ -36,6 +42,6 @@ void Cat::makeSound(void) const{
 	std::cout << "Miau, miuau! 😼" << std::endl;
 }
 
-std::string Cat::getType(void) const{
-	return (this->type);
+Brain *Cat::getBrain(void) const{
+	return (this->catBrain);
 }

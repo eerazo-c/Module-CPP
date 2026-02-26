@@ -17,9 +17,7 @@ Animal::Animal(){
 }
 
 Animal::Animal(std::string type){
-//	this->type = "Animal";
 	this->type = type;
-//	std::cout << "Animal " << " Constructor called" << std::endl;
 }
 
 Animal::Animal( const Animal &obj )

@@ -14,7 +14,7 @@ CC			=	c++
 CFLAGS		=	-Wall -Wextra -Werror -std=c++98 -I inc/
 OBJDIR		=	build
 SRCSDIR		=	src
-SRCS		=	main.cpp Animal.cpp Cat.cpp Dog.cpp WrongAnimal.cpp
+SRCS		=	main.cpp Animal.cpp Cat.cpp Dog.cpp WrongAnimal.cpp Brain.cpp
 
 OBJS		=	$(addprefix $(OBJDIR)/, ${SRCS:.cpp=.o})
 
@@ -34,7 +34,8 @@ banner:
 	@echo "# ========================== #"
 	@printf "%b" "\n$(RESET)"
 
-$(OBJS): $(OBJDIR)/%.o : $(SRCSDIR)/%.cpp Makefile inc/Animal.hpp inc/Cat.hpp inc/Dog.hpp | $(OBJDIR)
+$(OBJS): $(OBJDIR)/%.o : $(SRCSDIR)/%.cpp Makefile inc/Animal.hpp inc/Cat.hpp \
+	inc/Dog.hpp inc/Brain.hpp | $(OBJDIR)
 	@printf "%-42b" "$(BLUE)compiling... $(PURPLE)$(@F)$(RESET)\n"
 	@$(CC) $(CFLAGS) -c $< -o $@
 

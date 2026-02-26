@@ -17,16 +17,21 @@
 #include <iostream>
 #include <string>
 #include "Animal.hpp"
+#include "Brain.hpp"
 
 class Cat : public Animal
 {
+	private:
+		Brain *catBrain;
+
 	public:
 		Cat();
 		Cat( const Cat &obj);
 		Cat &operator=( const Cat &obj);
 		~Cat();
-	void makeSound(void) const;
-	std::string getType(void) const;
+
+		void makeSound(void) const;
+		Brain *getBrain(void) const;
 };
 
 #endif
