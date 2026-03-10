@@ -20,10 +20,10 @@ Bureaucrat::~Bureaucrat(){
 }
 
 
-Bureaucrat::Bureaucrat(std::string name, int _grade) : name ("Bureaucrat")
+Bureaucrat::Bureaucrat(std::string _name, int _grade) : name(_name)
 {
 	if (grade < 0)
-		std::cout << "menor a 0" << std::endl;
+		throw 
 	if (grade > 150)
 		std::cout << "mayor a 150" << std::endl;
 	this->grade = _grade;

@@ -14,5 +14,6 @@
 int main()
 {
 	Bureaucrat buro1("Eli", 5);
+	Bureaucrat buro2("Dei", 151);
 	return (0);
 }

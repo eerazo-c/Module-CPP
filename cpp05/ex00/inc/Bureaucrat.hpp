@@ -25,7 +25,7 @@ class Bureaucrat
 
 	public:
 		Bureaucrat();
-		Bureaucrat(std::string name, int _grade);
+		Bureaucrat(std::string _name, int _grade);
 		Bureaucrat(const Bureaucrat &obj);
 		Bureaucrat &operator=(const Bureaucrat &obj);
 		~Bureaucrat();
@@ -33,6 +33,9 @@ class Bureaucrat
 		std::string getName(void);
 		void getGrade(void);
 		void setGrade(int _grade);
+
+		void Bureaucrat::GradeTooHighException(int _grade);
+		void Bureaucrat::GradeTooLowException(int _incre);
 };
 
 #endif
