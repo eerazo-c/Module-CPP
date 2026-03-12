@@ -11,6 +11,9 @@
 /* ************************************************************************** */
 #pragma once
 
+#include <exception>
+#include <ostream>
+#include <stdexcept>
 #ifndef BUREAUCRAT_HPP
 # define BUREAUCRAT_HPP
 
@@ -25,17 +28,34 @@ class Bureaucrat
 
 	public:
 		Bureaucrat();
+		~Bureaucrat();
 		Bureaucrat(std::string _name, int _grade);
 		Bureaucrat(const Bureaucrat &obj);
 		Bureaucrat &operator=(const Bureaucrat &obj);
-		~Bureaucrat();
 
-		std::string getName(void);
-		void getGrade(void);
-		void setGrade(int _grade);
+		std::string getName(void) const;
+		int getGrade(void) const;
+		void setGrade(int s_grade);
 
-		void Bureaucrat::GradeTooHighException(int _grade);
-		void Bureaucrat::GradeTooLowException(int _incre);
+		void increment(int incre);
+		void descrement(int descre);
+
+	class GradeTooHighException : public std::exception
+	{
+		const char* what() const throw(){
+			return ("A Bureaucrat can't have more than 150.");
+	}
+		};
+
+	class GradeTooLowException : public std::exception
+	{
+		const char* what() const throw() {
+			return ("A Bureaucrat can't have lower than 1.");
+		}
+	};
+
 };
+
+std::ostream &operator<<(std::ostream &out, const Bureaucrat &obj);
 
 #endif

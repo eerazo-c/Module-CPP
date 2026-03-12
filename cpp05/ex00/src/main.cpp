@@ -10,10 +10,43 @@
 /*                                                                            */
 /* ************************************************************************** */
 #include "Bureaucrat.hpp"
+#include <exception>
+#include <iostream>
 
 int main()
 {
-	Bureaucrat buro1("Eli", 5);
-	Bureaucrat buro2("Dei", 151);
+	{
+		try{
+			std::cout << "\033[32m Test with error \033[0m " << std::endl;
+			Bureaucrat buro1("Eli", 150);
+			std::cout << buro1;
+			buro1.descrement(1);
+			std::cout << std::endl;
+		}
+		catch(std::exception & e)
+		{
+			std::cout << "\033[31m ERROR \033[0m \n" << e.what() << std::endl;
+		}
+	}
+
+	{
+		try {
+			std::cout << "\033[32m Varied test \033[0m " << std::endl;
+			Bureaucrat buro2("Dei", 0);
+			std::cout << buro2;
+			buro2.descrement(2);
+			std::cout << std::endl;
+		
+			Bureaucrat buro3("Isra", 1);
+			std::cout << buro3;
+			buro3.descrement(2);
+			std::cout << std::endl;
+
+		}
+		catch(std::exception & e)
+		{
+			std::cout << "\033[31m ERROR \033[0m \n" << e.what() << std::endl;
+		}
+	}
 	return (0);
 }
