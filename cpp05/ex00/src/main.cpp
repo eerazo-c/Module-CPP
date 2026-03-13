@@ -18,7 +18,7 @@ int main()
 	{
 		try{
 			std::cout << "\033[32m Test with error \033[0m " << std::endl;
-			Bureaucrat buro1("Eli", 150);
+			Bureaucrat buro1("Eli", 151);
 			std::cout << buro1;
 			buro1.descrement(1);
 			std::cout << std::endl;
@@ -39,7 +39,7 @@ int main()
 		
 			Bureaucrat buro3("Isra", 1);
 			std::cout << buro3;
-			buro3.descrement(2);
+			buro3.increment(1);
 			std::cout << std::endl;
 
 		}
