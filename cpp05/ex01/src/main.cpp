@@ -18,9 +18,9 @@ int main()
 	{
 		try{
 			std::cout << "\033[32m Test with error \033[0m " << std::endl;
-			Bureaucrat buro1("Eli", 151);
-			std::cout << buro1;
-			buro1.descrement(1);
+			Bureaucrat buro1("Eli", 1);
+			Form form1;
+			buro1.signForm(form1);
 			std::cout << std::endl;
 		}
 		catch(std::exception & e)
@@ -28,7 +28,7 @@ int main()
 			std::cout << "\033[31m ERROR \033[0m \n" << e.what() << std::endl;
 		}
 	}
-
+/*
 	{
 		try {
 			std::cout << "\033[32m Varied test \033[0m " << std::endl;
@@ -48,5 +48,6 @@ int main()
 			std::cout << "\033[31m ERROR \033[0m \n" << e.what() << std::endl;
 		}
 	}
+	*/
 	return (0);
 }

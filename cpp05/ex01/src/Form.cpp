@@ -20,16 +20,16 @@ Form::~Form(){
 
 }
 
-Form::Form(std::string _name, int _signGrade, int _excuGrade) : name(_name)
+Form::Form(std::string _name, int _signGrade, int _excuGrade) : name(_name), signGrade(_signGrade), excuGrade(_excuGrade)
 {
 	if (_signGrade < 0)
 		throw GradeTooLowException();
-	if (_grade > 150)
+	if (_signGrade > 150)
 		throw GradeTooHighException();
-	this->grade = _grade;
+	//this->signGrade = _signGrade;
 }
 
-Form::Form(const Form &obj)
+Form::Form(const Form &obj) : name("Bureaucrat"), signGrade(42), excuGrade(42)  
 {
 	*this = obj;
 }
@@ -37,20 +37,33 @@ Form::Form(const Form &obj)
 Form &Form::operator=(const Form &obj)
 {
 	if (this != &obj)
-		this->grade = obj.getGrade();
+		this->signal = obj.getSignGrade();
 	return (*this);
 }
 
-std::string Form::getName(void) const
+std::string Form::getName() const
 {
 	return (this->name);
 }
 
+int Form::getSignGrade() const 
+{ 
+	return signGrade; 
+}
+
+int Form::getExcuGrade() const 
+{ 
+	return excuGrade;
+}
+
+/*
 int Form::getGrade(void) const 
 {
 	return (this->grade);
 }
+*/
 
+/*
 void Form::setGrade(int s_grade)
 {
 	if (s_grade < 0)
@@ -59,7 +72,8 @@ void Form::setGrade(int s_grade)
 		throw GradeTooHighException();
 	this->grade = s_grade;
 }
-
+*/
+/*
 void Form::increment(int incre)
 {
 	if (incre < 0)
@@ -75,12 +89,14 @@ void Form::descrement(int descre)
 		throw GradeTooLowException();
 	if (descre > 150)
 		throw GradeTooHighException();
-	this->setGrade(this->getGrade() + descre);
+	this->getGrade(this->getGrade() + descre);
 }
+*/
 
 std::ostream &operator<<(std::ostream &out, const Form &obj)
 {
-	if (obj.getGrade() < 0 || obj.getGrade() > 150)
-		return (out << "Not Available");
-	return (out << "Form: " << obj.getName() << "\n Grade: " << obj.getGrade() << "\n");
+    out << "Form: " << obj.getName()
+        << "\nSign Grade: " << obj.getSignGrade()
+        << "\nExcu Grade: " << obj.getExcuGrade() << "\n";
+    return out;
 }

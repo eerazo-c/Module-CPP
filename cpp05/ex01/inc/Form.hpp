@@ -41,7 +41,7 @@ class Form
 		std::string getName() const;
 		bool getSignal() const;
 		int getSignGrade() const;
-		int getexcuGrade() const;
+		int getExcuGrade() const;
 
 		//void setGrade(int s_grade);
 		void increment(int incre);
@@ -51,14 +51,14 @@ class Form
 	class GradeTooHighException : public std::exception
 	{
 		const char* what() const throw(){
-			return ("A Bureaucrat can't have more than 150.");
+			return ("The grade is too hight.");
 	}
 		};
 
 	class GradeTooLowException : public std::exception
 	{
 		const char* what() const throw() {
-			return ("A Bureaucrat can't have lower than 1.");
+			return ("The grade is too low.");
 		}
 	};
 

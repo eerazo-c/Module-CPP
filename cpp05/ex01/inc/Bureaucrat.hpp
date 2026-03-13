@@ -21,7 +21,7 @@
 #include <string>
 #include "Form.hpp"
 
-class form;
+class Form;
 
 class Bureaucrat
 {
