@@ -31,15 +31,20 @@ int main()
 
 	{
 		try {
+			std::cout << std::endl;
 			std::cout << "\033[32m Varied test \033[0m " << std::endl;
 			Bureaucrat buro2("Dei", 0);
 			std::cout << buro2;
 			buro2.descrement(2);
+			std::cout << buro2;
+
 			std::cout << std::endl;
 		
 			Bureaucrat buro3("Isra", 1);
 			std::cout << buro3;
 			buro3.increment(1);
+			std::cout << buro3;
+
 			std::cout << std::endl;
 
 		}
