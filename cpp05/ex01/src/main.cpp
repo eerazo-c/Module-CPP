@@ -17,7 +17,7 @@ int main()
 {
 	{
 		try{
-			std::cout << "\033[32m Test with error \033[0m " << std::endl;
+			std::cout << "\033[32m Test \033[0m " << std::endl;
 			Bureaucrat buro1("Eli", 1);
 			Form form1;
 			buro1.signForm(form1);
@@ -28,18 +28,18 @@ int main()
 			std::cout << "\033[31m ERROR \033[0m \n" << e.what() << std::endl;
 		}
 	}
-/*
+
 	{
 		try {
 			std::cout << "\033[32m Varied test \033[0m " << std::endl;
-			Bureaucrat buro2("Dei", 0);
-			std::cout << buro2;
-			buro2.descrement(2);
+			Bureaucrat buro2("Dei", 2);
+			Form form2;
+			buro2.signForm(form2);
 			std::cout << std::endl;
 		
-			Bureaucrat buro3("Isra", 1);
-			std::cout << buro3;
-			buro3.increment(1);
+			Bureaucrat buro3("Isra", 151);
+			Form form3;
+			buro3.signForm(form3);
 			std::cout << std::endl;
 
 		}
@@ -48,6 +48,5 @@ int main()
 			std::cout << "\033[31m ERROR \033[0m \n" << e.what() << std::endl;
 		}
 	}
-	*/
 	return (0);
 }

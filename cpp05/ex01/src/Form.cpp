@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 #include "Form.hpp"
 
-Form::Form() : name("Bureaucrat"), signGrade(42), excuGrade(42) {
+Form::Form() : name("Bureaucrat"), signGrade(150), excuGrade(150) {
 	this->signal = false;
 	std::cout << "Form" << this->name << " created" << std::endl;
 }
@@ -61,9 +61,7 @@ int Form::getGrade(void) const
 {
 	return (this->grade);
 }
-*/
 
-/*
 void Form::setGrade(int s_grade)
 {
 	if (s_grade < 0)
@@ -92,6 +90,18 @@ void Form::descrement(int descre)
 	this->getGrade(this->getGrade() + descre);
 }
 */
+
+bool	Form::beSigned(Bureaucrat &obj)
+{
+	if (!this->signal && obj.getGrade() <= this->signGrade)
+	{
+		this->signal = true;
+		return (true);
+	}
+	else
+		throw Form::GradeTooLowException();
+	return (false);
+}
 
 std::ostream &operator<<(std::ostream &out, const Form &obj)
 {
