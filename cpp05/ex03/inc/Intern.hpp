@@ -33,8 +33,11 @@ class Intern
 		Intern &operator=(const Intern &obj);
 
 		AForm *makeform(std::string nameForm, std::string targetForm);
-	};
+		AForm *makeScf(std::string targetForm) const;
+		AForm *makeformRrf(std::string targetForm) const;
+		AForm *makeformPpf(std::string targetForm) const;
+};
 
-std::ostream &operator<<(std::ostream &out, const Intern &obj);
+typedef type AForm *(Intern::*f_form)(std::string &_target) const;
 
 #endif

@@ -14,33 +14,32 @@
 #include "PresidentialPardonForm.hpp"
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
-#include <exception>
-#include <iostream>
+#include "Intern.hpp"
 
 int main()
 {
 	{
 		try{
 			std::cout << "\033[32m Interns \033[0m " << std::endl;
-			Inter randominter;
+			Intern someRandomIntern;
 			Bureaucrat bur1("Eli", 1);
-			AForm *s;
-			AForm *r;
+			AForm *scf;
+			AForm *rrf;
 			AForm *p;
-			s = randominter.makeForm("ShrubberyCreationForm", "Bender");
-			r = randominter.makeForm("RobotomyRequestForm", "Bender");
-			p = randominter.makeForm("PresidentialPardonForm", "Bender");
-			bur1.signAForm(s);
-			bur1.signAForm(r);
-			bur1.signAForm(p);
+			scf = someRandomIntern.makeForm("Shrubbery Creation Form", "Bender");
+			rrf = someRandomIntern.makeForm("Robotomy Request Form", "Bender");
+			ppf = someRandomIntern.makeForm("Presidential Pardon Form", "Bender");
+			bur1.signAForm(scf);
+			bur1.signAForm(rrf);
+			bur1.signAForm(ppf);
 
-			bur1.executeForm(s);
-			bur1.executeForm(r);
-			bur1.executeForm(p);
+			bur1.executeForm(scf);
+			bur1.executeForm(rrf);
+			bur1.executeForm(ppf);
 
-			delete s;
-			delete r;
-			delete p;
+			delete scf;
+			delete rrf;
+			delete ppf;
 
 		}
 		catch(std::exception & e)

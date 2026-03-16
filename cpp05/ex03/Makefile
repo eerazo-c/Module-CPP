@@ -14,7 +14,7 @@ CC			=	c++
 CFLAGS		=	-Wall -Wextra -Werror -std=c++98 -I inc/
 OBJDIR		=	build
 SRCSDIR		=	src
-SRCS		=	main.cpp Bureaucrat.cpp AForm.cpp \
+SRCS		=	main.cpp Bureaucrat.cpp AForm.cpp Intern.cpp \
 				ShrubberyCreationForm.cpp RobotomyRequestForm.cpp PresidentialPardonForm.cpp 
 
 OBJS		=	$(addprefix $(OBJDIR)/, ${SRCS:.cpp=.o})
@@ -35,7 +35,7 @@ banner:
 	@echo "# ========================== #"
 	@printf "%b" "\n$(RESET)"
 
-$(OBJS): $(OBJDIR)/%.o : $(SRCSDIR)/%.cpp Makefile inc/Bureaucrat.hpp inc/AForm.hpp inc\Intern.hpp \
+$(OBJS): $(OBJDIR)/%.o : $(SRCSDIR)/%.cpp Makefile inc/Bureaucrat.hpp inc/AForm.hpp inc/Intern.hpp \
 	inc/ShrubberyCreationForm.hpp inc/RobotomyRequestForm.hpp inc/PresidentialPardonForm.hpp | $(OBJDIR)
 	@printf "%-42b" "$(BLUE)compiling... $(PURPLE)$(@F)$(RESET)\n"
 	@$(CC) $(CFLAGS) -c $< -o $@
