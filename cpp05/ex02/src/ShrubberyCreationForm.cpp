@@ -28,8 +28,6 @@ ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &obj) :
 	*this = obj;
 }
 
-/*operator*/
-
 ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationForm &obj)
 {
 	if (this != &obj)
@@ -37,17 +35,29 @@ ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationF
 	return (*this);
 }
 
-/*GETTER-SETTER*/
 std::string ShrubberyCreationForm::getTarget() const
 {
 	return (this->target);
 }
 
-/*MEMBER FUNTION*/
-
-bool ShrubberyCreationForm::execute(Bureaucrat const & executor)
+bool ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 {
 	(void)executor;
-	std::cout << this->target << " dibujar arbol ascii" << std::endl;
+	std::ofstream file;
+	file.open(&(this->target + "_shrubbery")[0], std::ios::out | std::ios::trunc);
+	if(!file.is_open())
+	{
+		std::cerr << "Error creating the file" << std::endl;
+		return (false);
+	}
+		file << "      .-`   `-." << std::endl;
+		file << "     /  .-. .-. \\" << std::endl;
+		file << "    |  /   Y   \\ |" << std::endl;
+		file << "    |  \\       / |" << std::endl;
+		file << "     \\  `-----' /" << std::endl;
+		file << "      `-._____.' " << std::endl;
+		file << "          ||" << std::endl;
+		file << "          ||" << std::endl;
+	file.close();
 	return (true);
 }

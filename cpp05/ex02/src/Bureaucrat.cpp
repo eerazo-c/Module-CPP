@@ -86,6 +86,7 @@ bool Bureaucrat::executeForm(AForm const & form) const
 	if (form.getSignal() && this->grade <= form.getExcuGrade())
 	{
 		std::cout << this->name << " execute " << form.getName() << std::endl;
+		form.execute(*this);
 		return (true);
 	}
 	else

@@ -45,7 +45,7 @@ std::string PresidentialPardonForm::getTarget() const
 
 /*MEMBER FUNTION*/
 
-bool PresidentialPardonForm::execute(Bureaucrat const & executor)
+bool PresidentialPardonForm::execute(Bureaucrat const & executor) const
 {
 	(void)executor;
 	std::cout << this->target << " has been pardoned by Zaphod Beeblebrox." << std::endl;

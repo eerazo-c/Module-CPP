@@ -13,19 +13,18 @@
 
 AForm::AForm() : name("Bureaucrat"), signGrade(150), excuGrade(150) {
 	this->signal = false;
-	std::cout << "Form" << this->name << " created" << std::endl;
+	std::cout << "AForm" << this->name << " created" << std::endl;
 }
 
 AForm::~AForm(){
-	std::cout << "Form destroyed" << std::endl;
+	std::cout << "AForm destroyed" << std::endl;
 }
 
-AForm::AForm(std::string _name, int _signGrade, int _excuGrade) : name(_name), signGrade(_signGrade), excuGrade(_excuGrade)
+AForm::AForm(std::string _name, int _signGrade,
+	int _excuGrade) : name(_name), signGrade(_signGrade), excuGrade(_excuGrade)
 {
-	if (_signGrade < 0)
-		throw GradeTooLowException();
-	if (_signGrade > 150)
-		throw GradeTooHighException();
+	this->signal = false;
+	std::cout << "AForm created" << std::endl;
 }
 
 AForm::AForm(const AForm &obj) : name("Bureaucrat"), signGrade(42), excuGrade(42)  
@@ -68,14 +67,12 @@ bool	AForm::beSigned(Bureaucrat &obj)
 AForm &AForm::operator=(const AForm &obj)
 {
 	if (this != &obj)
-		this->signal = obj.getSignGrade();
+		this->signal = obj.getSignal();
 	return (*this);
 }
 
 std::ostream &operator<<(std::ostream &out, const AForm &obj)
 {
-    out << "AForm: " << obj.getName()
-        << "\nSign Grade: " << obj.getSignGrade()
-        << "\nExcu Grade: " << obj.getExcuGrade() << "\n";
-    return out;
+	obj.getSignal() ? out << "Signed" : out << "Unsigned";
+	return (out << "\nAForm Name: " << obj.getName() << "\n Grade Sign: " << obj.getSignal() << "\n Grade Execute: " << obj.getExcuGrade() << "\n");
 }

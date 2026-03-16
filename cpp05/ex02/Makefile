@@ -49,7 +49,7 @@ $(NAME): $(OBJS)
 
 fclean: banner clean
 	@printf "%b" "$(BLUE)$(@)ing...$(RESET)\n"
-	@rm -rf $(NAME)
+	@rm -rf $(NAME) ./*_shrubbery
 
 clean: banner
 	@printf "%b" "$(BLUE)$(@)ing...$(RESET)\n"
