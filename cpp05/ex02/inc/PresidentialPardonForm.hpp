@@ -12,7 +12,7 @@
 #pragma once
 
 #ifndef PPRESIDENTIALPARDONFORM_HPP
-# define PPRESIDENTIALPARDONFORM_HPP_HPP
+# define PPRESIDENTIALPARDONFORM_HPP
 
 #include <exception>
 #include <ostream>
@@ -38,7 +38,7 @@ class PresidentialPardonForm : public AForm
 
 		std::string getTarget() const;
 		
-		bool execute(Bureaucrat const &obj);
+		bool execute(Bureaucrat const &executor);
 };
 
 std::ostream &operator<<(std::ostream &out, const PresidentialPardonForm &obj);

@@ -1,65 +1,53 @@
-
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   PresidentialPardonForm.cpp                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: elerazo- <elerazo-@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/03/16 12:33:21 by elerazo-          #+#    #+#             */
+/*   Updated: 2026/03/16 12:35:45 by elerazo-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 #include "PresidentialPardonForm.hpp"
 
-PresidentialPardonForm::PresidentialPardonForm() : AForm("PresidentialPardonForm", 25, 5), Target(default_target) {
+/*constructor*/
+
+PresidentialPardonForm::PresidentialPardonForm() : AForm("PresidentialPardonForm", 25, 5), target("default_target") {
 }
 
 PresidentialPardonForm::~PresidentialPardonForm(){
 
 }
 
-PresidentialPardonForm::PresidentialPardonForm(std::string _name, int _signGrade, int _excuGrade) : name(_name), signGrade(_signGrade), excuGrade(_excuGrade)
-{
-	if (_signGrade < 0)
-		throw GradeTooLowException();
-	if (_signGrade > 150)
-		throw GradeTooHighException();
-	//this->signGrade = _signGrade;
+PresidentialPardonForm::PresidentialPardonForm(std::string _target) : AForm("PresidentialPardonForm", 25, 5), target(_target) {
 }
 
-PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &obj) : name("Bureaucrat"), signGrade(42), excuGrade(42)  
+PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &obj) : AForm(obj), target(obj.getTarget()) 
 {
 	*this = obj;
 }
 
+/*operator*/
+
 PresidentialPardonForm &PresidentialPardonForm::operator=(const PresidentialPardonForm &obj)
 {
 	if (this != &obj)
-		this->signal = obj.getSignGrade();
+		this->target = obj.getTarget();
 	return (*this);
 }
 
-std::string PresidentialPardonForm::getName() const
+/*GETTER-SETTER*/
+std::string PresidentialPardonForm::getTarget() const
 {
-	return (this->name);
+	return (this->target);
 }
 
-int PresidentialPardonForm::getSignGrade() const 
-{ 
-	return signGrade; 
-}
+/*MEMBER FUNTION*/
 
-int PresidentialPardonForm::getExcuGrade() const 
-{ 
-	return excuGrade;
-}
-
-bool	PresidentialPardonForm::beSigned(Bureaucrat &obj)
+bool PresidentialPardonForm::execute(Bureaucrat const &executor)
 {
-	if (!this->signal && obj.getGrade() <= this->signGrade)
-	{
-		this->signal = true;
-		return (true);
-	}
-	else
-		throw PresidentialPardonForm::GradeTooLowException();
-	return (false);
-}
-
-std::ostream &operator<<(std::ostream &out, const PresidentialPardonForm &obj)
-{
-    out << "PresidentialPardonForm: " << obj.getName()
-        << "\nSign Grade: " << obj.getSignGrade()
-        << "\nExcu Grade: " << obj.getExcuGrade() << "\n";
-    return out;
+	(void)executor;
+	std::cout << this->target << " has been pardoned by Zaphod Beeblebrox." << std::endl;
+	return (true);
 }

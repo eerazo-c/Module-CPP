@@ -11,58 +11,34 @@
 /* ************************************************************************** */
 #pragma once
 
+#ifndef ROBOTOMYREQUESTFORM_HPP
+# define ROBOTOMYREQUESTFORM_HPP
+
 #include <exception>
 #include <ostream>
 #include <stdexcept>
-#ifndef FORM_HPP
-# define FORM_HPP
-
 #include <iostream>
 #include <string>
 #include "Bureaucrat.hpp"
+#include "AForm.hpp"
 
 class Bureaucrat;
 
-class RobotomyRequestForm
+class RobotomyRequestForm : public AForm
 {
 	private:
-		const std::string name;
-		bool signal;
-		const int signGrade;
-		const int excuGrade;
-
+		 std::string target;
+	
 	public:
 		RobotomyRequestForm();
 		~RobotomyRequestForm();
-		RobotomyRequestForm(std::string _name, int _signGrade, int _excuGrade);
+		RobotomyRequestForm(std::string _target);
 		RobotomyRequestForm(const RobotomyRequestForm &obj);
 		RobotomyRequestForm &operator=(const RobotomyRequestForm &obj);
 
-		std::string getName() const;
-		int getGrade(void) const;
-		bool getSignal() const;
-		int getSignGrade() const;
-		int getExcuGrade() const;
-
-		//void setGrade(int s_grade);
-		void increment(int incre);
-		void descrement(int descre);
-		bool beSigned(Bureaucrat &obj);
-
-	class GradeTooHighException : public std::exception
-	{
-		const char* what() const throw(){
-			return ("The grade is too hight.");
-	}
-		};
-
-	class GradeTooLowException : public std::exception
-	{
-		const char* what() const throw() {
-			return ("The grade is too low.");
-		}
-	};
-
+		std::string getTarget() const;
+		
+		bool execute(Bureaucrat const &executor);
 };
 
 std::ostream &operator<<(std::ostream &out, const RobotomyRequestForm &obj);

@@ -1,67 +1,53 @@
-
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ShrubberyCreationForm.cpp                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: elerazo- <elerazo-@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/03/16 12:33:21 by elerazo-          #+#    #+#             */
+/*   Updated: 2026/03/16 12:35:45 by elerazo-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 #include "ShrubberyCreationForm.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm() : name("Bureaucrat"), signGrade(150), excuGrade(150) {
-	this->signal = false;
-	std::cout << "ShrubberyCreationForm" << this->name << " created" << std::endl;
+/*constructor*/
+
+ShrubberyCreationForm::ShrubberyCreationForm() : AForm("ShrubberyCreationForm", 145, 137), target("default_target") {
 }
 
 ShrubberyCreationForm::~ShrubberyCreationForm(){
 
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string _name, int _signGrade, int _excuGrade) : name(_name), signGrade(_signGrade), excuGrade(_excuGrade)
-{
-	if (_signGrade < 0)
-		throw GradeTooLowException();
-	if (_signGrade > 150)
-		throw GradeTooHighException();
-	//this->signGrade = _signGrade;
+ShrubberyCreationForm::ShrubberyCreationForm(std::string _target) : AForm("ShrubberyCreationForm", 145, 137), target(_target) {
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &obj) : name("Bureaucrat"), signGrade(42), excuGrade(42)  
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &obj) : AForm(obj), target(obj.getTarget()) 
 {
 	*this = obj;
 }
 
+/*operator*/
+
 ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationForm &obj)
 {
 	if (this != &obj)
-		this->signal = obj.getSignGrade();
+		this->target = obj.getTarget();
 	return (*this);
 }
 
-std::string ShrubberyCreationForm::getName() const
+/*GETTER-SETTER*/
+std::string ShrubberyCreationForm::getTarget() const
 {
-	return (this->name);
+	return (this->target);
 }
 
-int ShrubberyCreationForm::getSignGrade() const 
-{ 
-	return signGrade; 
-}
+/*MEMBER FUNTION*/
 
-int ShrubberyCreationForm::getExcuGrade() const 
-{ 
-	return excuGrade;
-}
-
-bool	ShrubberyCreationForm::beSigned(Bureaucrat &obj)
+bool ShrubberyCreationForm::execute(Bureaucrat const &executor)
 {
-	if (!this->signal && obj.getGrade() <= this->signGrade)
-	{
-		this->signal = true;
-		return (true);
-	}
-	else
-		throw ShrubberyCreationForm::GradeTooLowException();
-	return (false);
-}
-
-std::ostream &operator<<(std::ostream &out, const ShrubberyCreationForm &obj)
-{
-    out << "ShrubberyCreationForm: " << obj.getName()
-        << "\nSign Grade: " << obj.getSignGrade()
-        << "\nExcu Grade: " << obj.getExcuGrade() << "\n";
-    return out;
+	(void)executor;
+	std::cout << this->target << " dibujar arbol ascii" << std::endl;
+	return (true);
 }

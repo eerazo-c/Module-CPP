@@ -11,11 +11,12 @@
 /* ************************************************************************** */
 #pragma once
 
+#ifndef SHRUBBERYCREATIONFORM_HPP
+# define SHRUBBERYCREATIONFORM_HPP
+
 #include <exception>
 #include <ostream>
 #include <stdexcept>
-#ifndef FORM_HPP
-# define FORM_HPP
 
 #include <iostream>
 #include <string>
@@ -23,48 +24,23 @@
 
 class Bureaucrat;
 
-class ShrubberyCreationForm
+class ShrubberyCreationForm : public AForm
 {
 	private:
-		const std::string name;
-		bool signal;
-		const int signGrade;
-		const int excuGrade;
-
+		std::string target;
+	
 	public:
 		ShrubberyCreationForm();
 		~ShrubberyCreationForm();
-		ShrubberyCreationForm(std::string _name, int _signGrade, int _excuGrade);
+		ShrubberyCreationForm(std::string _target);
 		ShrubberyCreationForm(const ShrubberyCreationForm &obj);
 		ShrubberyCreationForm &operator=(const ShrubberyCreationForm &obj);
 
-		std::string getName() const;
-		int getGrade(void) const;
-		bool getSignal() const;
-		int getSignGrade() const;
-		int getExcuGrade() const;
-
-		//void setGrade(int s_grade);
-		void increment(int incre);
-		void descrement(int descre);
-		bool beSigned(Bureaucrat &obj);
-
-	class GradeTooHighException : public std::exception
-	{
-		const char* what() const throw(){
-			return ("The grade is too hight.");
-	}
-		};
-
-	class GradeTooLowException : public std::exception
-	{
-		const char* what() const throw() {
-			return ("The grade is too low.");
-		}
-	};
-
+		std::string getTarget() const;
+		
+		bool execute(Bureaucrat const &obj);
 };
 
-std::ostream &operator<<(std::ostream &out, const ShrubberyCreationForm &obj);
+//std::ostream &operator<<(std::ostream &out, const ShrubberyCreationForm &obj);
 
 #endif
