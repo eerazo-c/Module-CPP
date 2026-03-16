@@ -11,12 +11,12 @@
 /* ************************************************************************** */
 #pragma once
 
-#include <exception>
-#include <ostream>
-#include <stdexcept>
 #ifndef FORM_HPP
 # define FORM_HPP
 
+#include <exception>
+#include <ostream>
+#include <stdexcept>
 #include <iostream>
 #include <string>
 #include "Bureaucrat.hpp"
@@ -39,15 +39,12 @@ class AForm
 		AForm &operator=(const AForm &obj);
 
 		std::string getName() const;
-		int getGrade(void) const;
 		bool getSignal() const;
 		int getSignGrade() const;
 		int getExcuGrade() const;
 
-		//void setGrade(int s_grade);
-		void increment(int incre);
-		void descrement(int descre);
-		bool beSigned(Bureaucrat &obj);
+		virtual bool beSigned(Bureaucrat &obj);
+		virtual bool execute(Bureaucrat const & executor) = 0;
 
 	class GradeTooHighException : public std::exception
 	{

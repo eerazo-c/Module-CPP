@@ -13,7 +13,7 @@
 
 Form::Form() : name("Bureaucrat"), signGrade(150), excuGrade(150) {
 	this->signal = false;
-	std::cout << "Form" << this->name << " created" << std::endl;
+	std::cout << "Form " << this->name << " created" << std::endl;
 }
 
 Form::~Form(){
@@ -26,7 +26,6 @@ Form::Form(std::string _name, int _signGrade, int _excuGrade) : name(_name), sig
 		throw GradeTooLowException();
 	if (_signGrade > 150)
 		throw GradeTooHighException();
-	//this->signGrade = _signGrade;
 }
 
 Form::Form(const Form &obj) : name("Bureaucrat"), signGrade(42), excuGrade(42)  
@@ -41,55 +40,27 @@ Form &Form::operator=(const Form &obj)
 	return (*this);
 }
 
+/*funtion miembros*/
+
 std::string Form::getName() const
 {
 	return (this->name);
 }
 
+bool Form::getSignal(void) const 
+{
+	return (this->signal);
+}
+
 int Form::getSignGrade() const 
 { 
-	return signGrade; 
+	return (this->signGrade); 
 }
 
 int Form::getExcuGrade() const 
 { 
-	return excuGrade;
+	return (this->excuGrade);
 }
-
-/*
-int Form::getGrade(void) const 
-{
-	return (this->grade);
-}
-
-void Form::setGrade(int s_grade)
-{
-	if (s_grade < 0)
-		throw GradeTooLowException();
-	if (s_grade > 150)
-		throw GradeTooHighException();
-	this->grade = s_grade;
-}
-*/
-/*
-void Form::increment(int incre)
-{
-	if (incre < 0)
-		throw GradeTooLowException();
-	if (incre > 150)
-		throw GradeTooHighException();
-	this->setGrade(this->getGrade() - incre);
-}
-
-void Form::descrement(int descre)
-{
-	if (descre < 0)
-		throw GradeTooLowException();
-	if (descre > 150)
-		throw GradeTooHighException();
-	this->getGrade(this->getGrade() + descre);
-}
-*/
 
 bool	Form::beSigned(Bureaucrat &obj)
 {

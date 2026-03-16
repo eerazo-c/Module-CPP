@@ -45,9 +45,9 @@ std::string RobotomyRequestForm::getTarget() const
 
 /*MEMBER FUNTION*/
 
-bool RobotomyRequestForm::execute(Bureaucrat const &executor)
+bool RobotomyRequestForm::execute(Bureaucrat const & executor)
 {
 	(void)executor;
-	std::cout << this->target << " has been pardoned by Zaphod Beeblebrox." << std::endl;
+	std::cout << this->target << " has been robotomized successfully 50% of the time. " << std::endl;
 	return (true);
 }

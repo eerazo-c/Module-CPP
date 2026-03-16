@@ -10,6 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 #include "Bureaucrat.hpp"
+#include "AForm.hpp"
+#include "PresidentialPardonForm.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
 #include <exception>
 #include <iostream>
 
@@ -17,10 +21,18 @@ int main()
 {
 	{
 		try{
-			std::cout << "\033[32m Test \033[0m " << std::endl;
+			std::cout << "\033[32m ShrubberyCreationForm \033[0m " << std::endl;
 			Bureaucrat buro1("Eli", 1);
-			AForm form1;
-			buro1.signAForm(form1);
+			ShrubberyCreationForm s1("exist");
+			buro1.executeForm(s1);
+			buro1.signAForm(s1);
+			buro1.executeForm(s1);
+			std::cout << std::endl;
+			Bureaucrat buro2("Gloria", 142);
+			ShrubberyCreationForm s2("This shouldn't exist");
+			buro2.executeForm(s2);
+			buro2.signAForm(s2);
+			buro2.executeForm(s2);
 			std::cout << std::endl;
 		}
 		catch(std::exception & e)
@@ -28,7 +40,7 @@ int main()
 			std::cout << "\033[31m ERROR \033[0m \n" << e.what() << std::endl;
 		}
 	}
-
+/*
 	{
 		try {
 			std::cout << "\033[32m Varied test \033[0m " << std::endl;
@@ -48,5 +60,6 @@ int main()
 			std::cout << "\033[31m ERROR \033[0m \n" << e.what() << std::endl;
 		}
 	}
+	*/
 	return (0);
 }

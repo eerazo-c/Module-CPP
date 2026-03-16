@@ -39,14 +39,10 @@ class Form
 		Form &operator=(const Form &obj);
 
 		std::string getName() const;
-		int getGrade(void) const;
 		bool getSignal() const;
 		int getSignGrade() const;
 		int getExcuGrade() const;
 
-		//void setGrade(int s_grade);
-		void increment(int incre);
-		void descrement(int descre);
 		bool beSigned(Bureaucrat &obj);
 
 	class GradeTooHighException : public std::exception

@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 #include "Bureaucrat.hpp"
 
+/*contructor*/
 Bureaucrat::Bureaucrat() : name("Bureaucrat"){
 	this->grade = 150;
 }
@@ -33,12 +34,7 @@ Bureaucrat::Bureaucrat(const Bureaucrat &obj)
 	*this = obj;
 }
 
-Bureaucrat &Bureaucrat::operator=(const Bureaucrat &obj)
-{
-	if (this != &obj)
-		this->grade = obj.getGrade();
-	return (*this);
-}
+/*setter-getters*/
 
 std::string Bureaucrat::getName(void) const
 {
@@ -77,19 +73,38 @@ void Bureaucrat::descrement(int descre)
 	this->setGrade(this->getGrade() + descre);
 }
 
-std::ostream &operator<<(std::ostream &out, const Bureaucrat &obj)
-{
-	if (obj.getGrade() < 0 || obj.getGrade() > 150)
-		return (out << "Not Available");
-	return (out << "Bureaucrat: " << obj.getName() << "\n Grade: " << obj.getGrade() << "\n");
-}
-
-//aqui
-
 void	Bureaucrat::signAForm(AForm &obj)
 {
 	if (obj.beSigned(*this))
 		std::cout << this->name << " signed " << obj.getName() << std::endl;
 	else
 		std::cout << this->name << " couldn't sign " << obj.getName() << " because the grade is to low\n";
+}
+
+bool Bureaucrat::executeForm(AForm const & form) const
+{
+	if (form.getSignal() && this->grade <= form.getExcuGrade())
+	{
+		std::cout << this->name << " execute " << form.getName() << std::endl;
+		return (true);
+	}
+	else
+		std::cout << this->name << " couldn't execute " << form.getName() << " because the grade is to low" << std::endl;
+	return (false);
+}
+
+/*operator*/
+
+Bureaucrat &Bureaucrat::operator=(const Bureaucrat &obj)
+{
+	if (this != &obj)
+		this->grade = obj.getGrade();
+	return (*this);
+}
+
+std::ostream &operator<<(std::ostream &out, const Bureaucrat &obj)
+{
+	if (obj.getGrade() < 0 || obj.getGrade() > 150)
+		return (out << "Not Available");
+	return (out << "Bureaucrat: " << obj.getName() << "\n Grade: " << obj.getGrade() << "\n");
 }

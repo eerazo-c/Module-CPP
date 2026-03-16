@@ -81,7 +81,7 @@ std::ostream &operator<<(std::ostream &out, const Bureaucrat &obj)
 {
 	if (obj.getGrade() < 0 || obj.getGrade() > 150)
 		return (out << "Not Available");
-	return (out << "Bureaucrat: " << obj.getName() << "\n Grade: " << obj.getGrade() << "\n");
+	return (out << " Bureaucrat: " << obj.getName() << "\n Grade: " << obj.getGrade() << "\n");
 }
 
 //aqui

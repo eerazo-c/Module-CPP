@@ -38,7 +38,7 @@ class PresidentialPardonForm : public AForm
 
 		std::string getTarget() const;
 		
-		bool execute(Bureaucrat const &executor);
+		bool execute(Bureaucrat const & executor);
 };
 
 std::ostream &operator<<(std::ostream &out, const PresidentialPardonForm &obj);
