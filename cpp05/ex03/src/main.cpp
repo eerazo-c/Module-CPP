@@ -23,19 +23,22 @@ int main()
 			std::cout << "\033[32m Interns \033[0m " << std::endl;
 			Intern someRandomIntern;
 			Bureaucrat bur1("Eli", 1);
+
 			AForm *scf;
 			AForm *rrf;
-			AForm *p;
+			AForm *ppf;
+
 			scf = someRandomIntern.makeForm("Shrubbery Creation Form", "Bender");
 			rrf = someRandomIntern.makeForm("Robotomy Request Form", "Bender");
 			ppf = someRandomIntern.makeForm("Presidential Pardon Form", "Bender");
-			bur1.signAForm(scf);
-			bur1.signAForm(rrf);
-			bur1.signAForm(ppf);
 
-			bur1.executeForm(scf);
-			bur1.executeForm(rrf);
-			bur1.executeForm(ppf);
+			bur1.signAForm(*scf);
+			bur1.signAForm(*rrf);
+			bur1.signAForm(*ppf);
+
+			bur1.executeForm(*scf);
+			bur1.executeForm(*rrf);
+			bur1.executeForm(*ppf);
 
 			delete scf;
 			delete rrf;
