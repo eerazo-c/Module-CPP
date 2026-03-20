@@ -31,6 +31,28 @@ ScalarConverter &ScalarConverter::operator=(const ScalarConverter &obj)
 	return (*this);
 }
 
+void convertdouble(std::string type)
+{
+	double num = std::atof(type.c_str());
+	if (type.size() == 1 && num <= 0 && static_cast<double>(type.c_str()[0]) != '0')
+	{
+		std::cout << std::fixed << std::setprecision(1) << "double: " << static_cast<float>(type.c_str()[0]) << std::endl;
+		return ;
+	}
+	std::cout << "double: " << num << std::endl;
+}
+
+void convertFloat(std::string type)
+{
+	float number = std::atof(type.c_str());
+	if (type.size() == 1 && number <= 0 && static_cast<float>(type.c_str()[0]) != '0')
+	{
+		std::cout << std::fixed << std::setprecision(1) << "float: " << static_cast<float>(type.c_str()[0]) << std::endl;
+		return ;
+	}
+	std::cout << std::fixed << std::setprecision(1) << "float: " << number << "f\n";
+}
+
 void convertInt(std::string type)
 {
 	int num = std::atoi(type.c_str());
@@ -39,12 +61,11 @@ void convertInt(std::string type)
 		std::cout << "Int: " << static_cast<int>(type.c_str()[0]) << std::endl;
 		return ;
 	}
-	if (!type.compare("nan") || !type.compare("inf") || !type.compare("-inf"))
+	if (!type.compare("nan"))
 	{
 		std::cout << "Int: imposible" << std::endl;
 		return ;
 	}
-	/*if (num >= 48 && num <= 57)*/
 	std::cout << "Int: " << num << std::endl;
 }
 
@@ -53,22 +74,23 @@ void convertChar(std::string type)
 	char c = std::atoi(type.c_str());
 	if (type.size() == 1 && c <= 0 && type.c_str()[0] != '0')
 	{
-		std::cout << "char: " << type.c_str()[0] << std::endl;
+		std::cout << "char: '" << type.c_str()[0] << "'" << std::endl;
 		return ;
 	}
-	if (!type.compare("nan") || !type.compare("inf") || !type.compare("-inf"))
+	/*if (!type.compare("nan") || !type.compare("inf") || !type.compare("-inf"))
 	{
 		std::cout << "char: imposible" << std::endl;
 		return ;
-	}
+	}*/
 	if (c >= 32 && c <= 126)
-		std::cout << "char : " << num << std::endl;
+		std::cout << "char: '" << c <<  "'" << std::endl;
 	else
-		std::cout << "char: Non displayable";
+		std::cout << "char: Non displayable" << std::endl;
 }
+
 void ScalarConverter::convert(std::string type)
 {
-	f_form conv[] = {&convertChar, &convertInt};
-	for (unsigned int i = 0; i < 2; i++)
+	f_form conv[] = {&convertChar, &convertInt, &convertFloat, &convertdouble};
+	for (unsigned int i = 0; i < 4; i++)
 		(*conv[i])(type);
 }
