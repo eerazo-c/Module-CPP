@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScalarConverter.hpp                                           :+:      :+:    :+:   */
+/*   Serializer.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elerazo- <elerazo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -11,8 +11,8 @@
 /* ************************************************************************** */
 #pragma once
 
-#ifndef SCALARCONVERTER_HPP
-# define SCALARCONVERTER_HPP
+#ifndef SERIALIZER_HPP
+# define SERIALIZER_HPP
 
 #include <iostream>
 #include <iostream>
@@ -20,18 +20,18 @@
 #include <stdlib.h>
 #include <iomanip>
 
-class  ScalarConverter
+class  Serializer
 {
 	private:
-		ScalarConverter();
-		~ScalarConverter();
-		ScalarConverter(const ScalarConverter &obj);
-		ScalarConverter &operator=(const ScalarConverter &obj);
 
 	public:
-		static void convert(std::string type);
-};
+		Serializer();
+		~Serializer();
+		Serializer(const Serializer &obj);
+		Serializer &operator=(const Serializer &obj);
 
-typedef void(*f_form)(std::string type);
+		static uintptr_t serialize(Data* ptr);
+		static Data* deserialize(uintptr_t raw);
+};
 
 #endif
