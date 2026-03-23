@@ -9,15 +9,16 @@
 /*   Updated: 2026/03/18 15:35:08 by elerazo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "ScalarConverter.hpp"
+#include "Serialization.hpp"
 
-int main(int ac, char **av)
+int main(void)
 {
-	if (ac != 2)
-	{
-		std::cout << "\033[31m Error: \033[0mneed 1 argument " << std::endl;
-		return (1);
-	}
-	ScalarConverter::convert(av[1]);
+	Data ptr;
+	Data *samePtr;
+	std::cout << "Original ptr: " << &ptr << std::endl;
+	uintptr_t keep = Serializer::serialize(&ptr);
+	std::cout << "Serializer reult: " << keep << std::endl;
+	samePtr = Serializer::deserialize(keep);
+	std::cout << "deserialize result: " << samePtr << std::endl;
 	return 0;
 }

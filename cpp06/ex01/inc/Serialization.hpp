@@ -15,20 +15,25 @@
 # define SERIALIZER_HPP
 
 #include <iostream>
-#include <iostream>
+#include <cstdint>
 #include <string>
 #include <stdlib.h>
 #include <iomanip>
 
+typedef struct Data
+{
+	int edad;
+} Data;
+
 class  Serializer
 {
 	private:
-
-	public:
 		Serializer();
 		~Serializer();
 		Serializer(const Serializer &obj);
 		Serializer &operator=(const Serializer &obj);
+
+	public:
 
 		static uintptr_t serialize(Data* ptr);
 		static Data* deserialize(uintptr_t raw);
