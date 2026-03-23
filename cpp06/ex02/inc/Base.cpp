@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Serializer.hpp                                           :+:      :+:    :+:   */
+/*   Base.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elerazo- <elerazo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -11,28 +11,27 @@
 /* ************************************************************************** */
 #pragma once
 
-#ifndef SERIALIZER_HPP
-# define SERIALIZER_HPP
+#ifndef BASE_HPP
+# define BASE_HPP
 
 #include <iostream>
 #include <cstdint>
 #include <string>
 #include <stdlib.h>
 #include <iomanip>
-#include <stdint.h>
 
 typedef struct Data
 {
 	int edad;
 } Data;
 
-class  Serializer
+class  Base
 {
 	private:
-		Serializer();
-		~Serializer();
-		Serializer(const Serializer &obj);
-		Serializer &operator=(const Serializer &obj);
+		Base();
+		~Base();
+		Base(const Base &obj);
+		Base &operator=(const Base &obj);
 
 	public:
 
