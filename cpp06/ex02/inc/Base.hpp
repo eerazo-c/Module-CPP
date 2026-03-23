@@ -15,28 +15,11 @@
 # define BASE_HPP
 
 #include <iostream>
-#include <cstdint>
-#include <string>
-#include <stdlib.h>
-#include <iomanip>
-
-typedef struct Data
-{
-	int edad;
-} Data;
 
 class  Base
 {
-	private:
-		Base();
-		~Base();
-		Base(const Base &obj);
-		Base &operator=(const Base &obj);
-
 	public:
-
-		static uintptr_t serialize(Data* ptr);
-		static Data* deserialize(uintptr_t raw);
+		virtual ~Base();
 };
 
 #endif
