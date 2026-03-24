@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScalarConverter.hpp                                           :+:      :+:    :+:   */
+/*   whatever.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elerazo- <elerazo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -9,29 +9,14 @@
 /*   Updated: 2026/03/13 18:41:05 by elerazo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#pragma once
 
-#ifndef SCALARCONVERTER_HPP
-# define SCALARCONVERTER_HPP
+#ifndef WHATEVER_HPP_HPP
+# define WHATEVER_HPP
 
 #include <iostream>
-#include <iostream>
-#include <string>
-#include <stdlib.h>
-#include <iomanip>
 
-class  ScalarConverter
-{
-	private:
-		ScalarConverter();
-		~ScalarConverter();
-		ScalarConverter(const ScalarConverter &obj);
-		ScalarConverter &operator=(const ScalarConverter &obj);
-
-	public:
-		static void convert(std::string type);
-};
-
-typedef void(*f_form)(std::string type);
+template <typename T> void swap(T &a, T &b);
+template <typename T> T min(T a, T b);
+template <typename T> T max(T a, T b);
 
 #endif
