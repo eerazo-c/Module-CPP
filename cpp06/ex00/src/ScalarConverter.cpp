@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 #include "ScalarConverter.hpp"
 #include <iostream>
-#include <memory>
+#include <limits>
 
 ScalarConverter::ScalarConverter() {
 
@@ -56,13 +56,24 @@ void convertFloat(std::string type)
 void convertInt(std::string type)
 {
 	int num = std::atoi(type.c_str());
+	double dnum = std::atof(type.c_str());
 	if (type.size() == 1 && num <= 0 && static_cast<int>(type.c_str()[0]) != '0')
 	{
 		std::cout << "Int: " << static_cast<int>(type.c_str()[0]) << std::endl;
 		return ;
 	}
-	if (!type.compare("nan"))
+	if (!type.compare("nan") || !type.compare("inff") || !type.compare("-inff"))
 	{
+		std::cout << "Int: imposible" << std::endl;
+		return ;
+	}
+	if (!type.compare("inf") || !type.compare("-inf"))
+	{
+		std::cout << "Int: imposible" << std::endl;
+		return ;
+	}
+	if (std::numeric_limits<int>::max() < dnum || std::numeric_limits<int>::min() > dnum)
+	{	
 		std::cout << "Int: imposible" << std::endl;
 		return ;
 	}
@@ -77,11 +88,6 @@ void convertChar(std::string type)
 		std::cout << "char: '" << type.c_str()[0] << "'" << std::endl;
 		return ;
 	}
-	/*if (!type.compare("nan") || !type.compare("inf") || !type.compare("-inf"))
-	{
-		std::cout << "char: imposible" << std::endl;
-		return ;
-	}*/
 	if (c >= 32 && c <= 126)
 		std::cout << "char: '" << c <<  "'" << std::endl;
 	else
