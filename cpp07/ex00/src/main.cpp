@@ -9,21 +9,29 @@
 /*   Updated: 2026/03/18 15:35:08 by elerazo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "ScalarConverter.hpp"
+#include "whatever.hpp"
 
-template <typename T> void swap(T a, T b)
+template <typename T> void swap(T &a, T &b)
 {
 	T tmp;
 
 	tmp = a;
 	a = b;
 	b = tmp;
-
 }
 
-template <typename T> T min(T a, T b)
+template <typename T> T &min(T &a, T &b)
 {
+	if (a < b)
+		return (a);
+	return (b);
+}
 
+template <typename T> T &max(T &a, T &b)
+{
+	if (a > b)
+		return (a);
+	return (b);
 }
 
 int main( void )
