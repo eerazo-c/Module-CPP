@@ -9,30 +9,33 @@
 /*   Updated: 2026/03/18 15:35:08 by elerazo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "whatever.hpp"
+#include "inter.hpp"
+#include <ostream>
+#include <stdexcept>
 
-template <typename T> void inter(T a, T b, T c)
+template <typename T> void inter(T *array, const int len, void (*funcion) (T))
 {
-	a = direccion de un aarray;
-	b = es el len de una array pasado a const valor;
-	c = funcion que se llamra en cada elemento de el array;
+	while (*array)
+	{
+		funcion(*array);
+		array++;
+	}
+	std::cout << std::endl;
+	std::cout << "len es: " << len << std::endl;
 }
 
-template <typename T> T &min(T &a, T &b)
+void funcion(char c)
 {
-	if (a < b)
-		return (a);
-	return (b);
-}
-
-template <typename T> T &max(T &a, T &b)
-{
-	if (a > b)
-		return (a);
-	return (b);
+	std::cout << c ;
 }
 
 int main( void )
 {
+	char adressArray[] = "Hola, que tal";
+	int len = std::strlen(adressArray); 
+	
+
+	inter(adressArray, len, funcion);
+	std::cout << std::endl;
 	return 0;
 }

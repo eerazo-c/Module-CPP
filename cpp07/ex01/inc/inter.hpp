@@ -14,7 +14,8 @@
 # define ITER_HPP
 
 #include <iostream>
+#include <cstring>
 
-template <typename T> void inter(T a, T b, T c);
+template <typename T> void inter(T *array, const int len, void (*funcion)(T ));
 
 #endif
