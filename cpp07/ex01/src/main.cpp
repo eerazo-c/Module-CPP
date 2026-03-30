@@ -20,25 +20,29 @@ template <typename T> void inter(T *array, const int len, void (*funcion) (T &))
 
 template <typename T> void printer(T &c)
 {
-	std::cout << c; 
+	std::cout << c << std::endl; 
 }
 
 int	main(void)
 {
-	char	adressArray[] = "Hola, que tal?";
-	char 	str[] = "Soy Eli :)";
+	std::string	adressArray[] = {"Hola", "que", "tal", "?"};
+	std::string 	str[] = {"Soy", "Eli", ":)"};
 	int		numbers[] = {1, 2, 3, 4, 5};
 	char	letras[] = {'a', 'b', 'c', 'd', 'e'};
 
-	inter(adressArray, 14, printer);
+	std::cout << "String1: " << std::endl;
+	inter(adressArray, 4, printer);
 	std::cout << std::endl;
 
-	inter(str, 10, printer);
+	std::cout << "String2: " << std::endl;
+	inter(str, 3, printer);
 	std::cout << std::endl;
 
+	std::cout << "Numeros: " << std::endl;
 	inter(numbers, 5, printer);
 	std::cout << std::endl;
 
+	std::cout << "letras: " << std::endl;
 	inter(letras, 5, printer);
 	std::cout << std::endl;
 
