@@ -1,22 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   inter.hpp                                           :+:      :+:    :+:   */
+/*   Array.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elerazo- <elerazo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/13 18:40:41 by elerazo-          #+#    #+#             */
-/*   Updated: 2026/03/13 18:41:05 by elerazo-         ###   ########.fr       */
+/*   Created: 2026/03/30 15:13:05 by elerazo-          #+#    #+#             */
+/*   Updated: 2026/03/30 15:13:34 by elerazo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "Array.hpp"
 
-#ifndef ITER_HPP
-# define ITER_HPP
+Array::Array(){
 
-#include <iostream>
-#include <cstring>
+}
 
-template <typename T> void inter(T *array, const int len, void (*funcion)(T &));
-template <typename T> void funcion(T &c);
+Array::~Array(){
 
-#endif
+}
+
+Array::Array(unsigned int n){
+
+}
+
+Array::Array(const Array &obj){
+	if ()
+}

@@ -1,22 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   inter.hpp                                           :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elerazo- <elerazo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/13 18:40:41 by elerazo-          #+#    #+#             */
-/*   Updated: 2026/03/13 18:41:05 by elerazo-         ###   ########.fr       */
+/*   Created: 2026/03/18 15:32:45 by elerazo-          #+#    #+#             */
+/*   Updated: 2026/03/18 15:35:08 by elerazo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "Array.hpp"
 
-#ifndef ITER_HPP
-# define ITER_HPP
-
-#include <iostream>
-#include <cstring>
-
-template <typename T> void inter(T *array, const int len, void (*funcion)(T &));
-template <typename T> void funcion(T &c);
-
-#endif
+int	main(void)
+{
+	return (0);
+}

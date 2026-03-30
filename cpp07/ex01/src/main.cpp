@@ -18,7 +18,7 @@ template <typename T> void inter(T *array, const int len, void (*funcion) (T &))
 	std::cout << std::endl;
 }
 
-template <typename T> void funcion(T &c)
+template <typename T> void printer(T &c)
 {
 	std::cout << c; 
 }
@@ -30,16 +30,16 @@ int	main(void)
 	int		numbers[] = {1, 2, 3, 4, 5};
 	char	letras[] = {'a', 'b', 'c', 'd', 'e'};
 
-	inter(adressArray, 14, funcion);
+	inter(adressArray, 14, printer);
 	std::cout << std::endl;
 
-	inter(str, 10, funcion);
+	inter(str, 10, printer);
 	std::cout << std::endl;
 
-	inter(numbers, 5, funcion);
+	inter(numbers, 5, printer);
 	std::cout << std::endl;
 
-	inter(letras, 5, funcion);
+	inter(letras, 5, printer);
 	std::cout << std::endl;
 
 	return (0);

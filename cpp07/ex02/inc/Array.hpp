@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   inter.hpp                                           :+:      :+:    :+:   */
+/*   Array.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elerazo- <elerazo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -9,14 +9,25 @@
 /*   Updated: 2026/03/13 18:41:05 by elerazo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#ifndef ITER_HPP
-# define ITER_HPP
+#ifndef ARRAY_HPP
+# define ARRAY_HPP
 
 #include <iostream>
-#include <cstring>
 
-template <typename T> void inter(T *array, const int len, void (*funcion)(T &));
-template <typename T> void funcion(T &c);
+templates <typename T>
+class Array{
+	private:
+
+	public:
+		Array();
+		~Array();
+		Array(unsigned int n);
+		Array(const Array &obj);
+
+		Array &operador=(const Array &obj);
+		T operador[](unsigned int n) const;
+		T &operador[](unsigned int n);
+		unsigned int size() const;
+};
 
 #endif
