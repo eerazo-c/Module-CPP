@@ -16,6 +16,7 @@
 #include <iostream>
 #include <cstring>
 
-template <typename T> void inter(T *array, const int len, void (*funcion)(T ));
+template <typename T> void inter(T *array, const int len, void (*funcion)(T &));
+template <typename T> void funcion(T &c);
 
 #endif

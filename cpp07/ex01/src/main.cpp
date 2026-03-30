@@ -10,32 +10,37 @@
 /*                                                                            */
 /* ************************************************************************** */
 #include "inter.hpp"
-#include <ostream>
-#include <stdexcept>
 
-template <typename T> void inter(T *array, const int len, void (*funcion) (T))
+template <typename T> void inter(T *array, const int len, void (*funcion) (T &))
 {
-	while (*array)
-	{
-		funcion(*array);
-		array++;
-	}
+	for (int i = 0; i < len; i++)
+		funcion(array[i]);
 	std::cout << std::endl;
-	std::cout << "len es: " << len << std::endl;
 }
 
-void funcion(char c)
+template <typename T> void funcion(T &c)
 {
-	std::cout << c ;
+	std::cout << c; 
 }
 
-int main( void )
+int	main(void)
 {
-	char adressArray[] = "Hola, que tal";
-	int len = std::strlen(adressArray); 
-	
+	char	adressArray[] = "Hola, que tal?";
+	char 	str[] = "Soy Eli :)";
+	int		numbers[] = {1, 2, 3, 4, 5};
+	char	letras[] = {'a', 'b', 'c', 'd', 'e'};
 
-	inter(adressArray, len, funcion);
+	inter(adressArray, 14, funcion);
 	std::cout << std::endl;
-	return 0;
+
+	inter(str, 10, funcion);
+	std::cout << std::endl;
+
+	inter(numbers, 5, funcion);
+	std::cout << std::endl;
+
+	inter(letras, 5, funcion);
+	std::cout << std::endl;
+
+	return (0);
 }
