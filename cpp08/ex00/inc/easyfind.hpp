@@ -30,4 +30,13 @@ class notFound : public std::exception
 	}
 };
 
+template <typename T> T easyfind(T &container, int num)
+{
+	typename T::iterador it;
+	it = (find(container.begin(), container.end(), num));
+	std::cout << "container: " << *it << "numero: " << num << std::endl;
+	return (it);
+
+}
+
 #endif

@@ -11,17 +11,14 @@
 /* ************************************************************************** */
 #include "easyfind.hpp"
 
-template <typename T> T easyfind(T &container, int num)
-{
-	typename T::iterator it;
-	return (it);
-}
-
 int	main(void)
 {
-	std::vector<int> containerV = {1, 2, 3, 4, 5};
-	std::deque<int> containerD = {1, 2, 3, 4, 5};
-	std::list<int> containerL = {1, 2, 3, 4, 5};
+	std::vector<int> containerV;
+	containerV.push_back(1);
+	std::deque<int> containerD;
+	containerD.push_back(2);
+	std::list<int> containerL;
+	containerL.push_back(3);
 	int num = 2;
 
 	easyfind(containerV, num);
