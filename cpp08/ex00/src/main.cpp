@@ -10,23 +10,54 @@
 /*                                                                            */
 /* ************************************************************************** */
 #include "easyfind.hpp"
+#include <exception>
 
 int	main(void)
 {
 	std::vector<int> containerV;
 	containerV.push_back(1);
+	containerV.push_back(2);
+	containerV.push_back(3);
+	containerV.push_back(4);
 	std::deque<int> containerD;
+	containerD.push_back(1);
 	containerD.push_back(2);
+	containerD.push_back(3);
+	containerD.push_back(4);
 	std::list<int> containerL;
+	containerL.push_back(1);
+	containerL.push_back(2);
 	containerL.push_back(3);
-	int num = 2;
+	containerL.push_back(4);
+	int num = 4;
 
-	easyfind(containerV, num);
-	std::cout << "Vector: " << *easyfind(containerV, num) << std::endl;
-	easyfind(containerD, num);
-	std::cout << "Deque: " << *easyfind(containerD, num) << std::endl;
-	easyfind(containerL, num);
-	std::cout << "List: " << *easyfind(containerL, num) << std::endl;
+	try {
+		easyfind(containerV, num);
+		std::cout << "Vector: " << *easyfind(containerV, num) << std::endl;
+	}
+	catch(std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
 
+	try{
+		easyfind(containerD, num);
+		std::cout << "Deque: " << *easyfind(containerD, num) << std::endl;
+	}
+
+	catch (std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+
+	try {
+		easyfind(containerL, num);
+		std::cout << "List: " << *easyfind(containerL, num) << std::endl;
+	}
+
+	catch (std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
 	return (0);
 }

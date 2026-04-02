@@ -21,8 +21,6 @@
 #include <iterator>
 #include <algorithm>
 
-template <typename T> T easyfind(T &container, int num);
-
 class notFound : public std::exception
 {
 	const char *what() const throw(){
@@ -30,13 +28,14 @@ class notFound : public std::exception
 	}
 };
 
-template <typename T> T easyfind(T &container, int num)
+template <typename T> typename T::iterator easyfind(T &container, int num)
 {
-	typename T::iterador it;
-	it = (find(container.begin(), container.end(), num));
-	std::cout << "container: " << *it << "numero: " << num << std::endl;
+	typename T::iterator it;
+	it = std::find(container.begin(), container.end(), num);
+	//std::cout << "container: " << *it << "numero: " << num << std::endl;
+	if (it == container.end())
+		throw notFound();
 	return (it);
-
 }
 
 #endif
