@@ -16,31 +16,42 @@
 #include <iostream>
 #include <cstring>
 #include <algorithm>
+#include <vector>
 
 class Span
 {
 	private:
-		
-		
+		unsigned int max;
+		std::vector<int> num;
+
 	public:
 		Span();
 		~Span();
 		Span(unsigned int n);
 		Span(const Span &obj);
-		Span &operator=(const Span &obj)
+		Span &operator=(const Span &obj);
 
-		void addNumber();
-		void shortestSpan();
-		void longestSpan();
+		void addNumber(int _num);
+		short shortestSpan();
+		long longestSpan();
 
 
-	class notAdded : public std::exception
+	class fullSpan : public std::exception
 	{
 		const char *what() const throw()
 		{
-			return ("Number not added.");
+			return ("Span is full.");
 		}
-	}
+	};
+
+	class noSpan : public std::exception
+	{
+		const char *what() const throw()
+		{
+			return ("Not enough numbers to find a span.");
+		}
+	};
+
 };
 
 #endif
