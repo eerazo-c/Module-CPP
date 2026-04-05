@@ -47,6 +47,11 @@ void Span::addNumber(int _num)
 	num.push_back(_num);
 }
 
+void Span::addNumberMine()
+{
+	
+}
+
 short Span::shortestSpan()
 {
 	if (num.size() < 2)

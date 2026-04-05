@@ -14,6 +14,7 @@
 
 int main()
 {
+	std::cout << "Subject Test" << std::endl;
 	try
 	{
 		Span sp = Span(5);
@@ -30,5 +31,14 @@ int main()
 
 	}
 
+	std::cout << "Mine Funtion Test" << std::endl;
+	try {
+		Span spm = Span(5);
+		spm.addNumberMine(6);
+		spm.addNumberMine(3);
+		spm.addNumberMine(17);
+		spm.addNumberMine(9);
+		spm.addNumberMine(11);
+	}
 	return 0;
 }
