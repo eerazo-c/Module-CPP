@@ -24,21 +24,6 @@ int main()
 		sp.addNumber(9);
 		sp.addNumber(11);
 
-		std::cout << sp.shortestSpan() << std::endl;
-		std::cout << sp.longestSpan() << std::endl;
-	}
-	catch(std::exception &e) {
-
-	}
-
-	std::cout << "Mine Funtion Test" << std::endl;
-	try {
-		Span spm = Span(5);
-		spm.addNumberMine(6);
-		spm.addNumberMine(3);
-		spm.addNumberMine(17);
-		spm.addNumberMine(9);
-		spm.addNumberMine(11);
-	}
-	return 0;
+//	std::cout << sp.shortestSpan() << std::endl;
+//	std::cout << sp.longestSpan() << std::endl;
 }

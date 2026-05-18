@@ -32,7 +32,7 @@ template <typename T> typename T::iterator easyfind(T &container, int num)
 {
 	typename T::iterator it;
 	it = std::find(container.begin(), container.end(), num);
-	//std::cout << "container: " << *it << "numero: " << num << std::endl;
+	
 	if (it == container.end())
 		throw notFound();
 	return (it);

@@ -21,8 +21,8 @@
 class Span
 {
 	private:
-		unsigned int max;
-		std::vector<int> num;
+		std::vector<unsigned int> vect;
+		unsigned int N;
 
 	public:
 		Span();
@@ -31,27 +31,34 @@ class Span
 		Span(const Span &obj);
 		Span &operator=(const Span &obj);
 
-		void addNumber(int _num);
-		short shortestSpan();
-		long longestSpan();
+		void addNumber(unsigned int num); 
+		//unsigned int shortestSpan();
+		//unsigned int longestSpan();
 
-
-	class fullSpan : public std::exception
+	class notAdded : public std::exception
 	{
 		const char *what() const throw()
 		{
-			return ("Span is full.");
+			return ("Number not added, because is full");
 		}
 	};
 
-	class noSpan : public std::exception
+	class shortempty : public std::exception
 	{
 		const char *what() const throw()
 		{
-			return ("Not enough numbers to find a span.");
+			return ("Short span no workin, empty container.");
 		}
 	};
 
+
+	class longempty : public std::exception
+	{
+		const char *what() const throw()
+		{
+			return ("Long span no workinng, empty container");
+		}
+	};
 };
 
 #endif
