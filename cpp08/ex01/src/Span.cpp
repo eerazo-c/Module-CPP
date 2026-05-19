@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 #include "Span.hpp"
 #include <iostream>
+#include <vector>
 
 Span::Span() : vect(0), N(0){
 
@@ -37,17 +38,21 @@ Span& Span::operator=(const Span &obj)
 
 void Span::addNumber(unsigned int num)
 {
-	std::vector<unsigned int>::iterator it;
-	it = vect.begin();
-	std::cout << "inicio" << it << std::endl;
-
 	if (vect.size() >= N)
 		throw notAdded();
+
 	vect.push_back(num);
-	it = vect.end();
-	std::cout << "final" << it << std::endl;
+	for (std::vector<unsigned int>::iterator it = vect.begin(); it != vect.end(); ++it)
+	{
+		std::cout << "Vector :" << *it << std::endl;
+	}
 }
-/*
+
+/*void Span::addSomNumber()
+{
+
+}
+
 Span::unsigned int shortestSpan()
 {
 
@@ -57,5 +62,4 @@ Span::unsigned int longestSpan()
 {
 
 }
-
 */
