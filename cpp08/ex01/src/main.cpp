@@ -23,13 +23,18 @@ int main()
 		sp.addNumber(9);
 		sp.addNumber(11);
 		//sp.addNumber(15);
+
+		std::cout << "Container: " << sp;
+		std::cout << std::endl;
+
+		std::cout << "short: " << sp.shortestSpan() << std::endl;
+		std::cout << "long: " << sp.longestSpan() << std::endl;
+
 	}
 	catch(std::exception & e)
 	{
 		std::cout << "\033[31m ERROR \033[0m \n" << e.what() << std::endl;
 	}
-//	std::cout << sp.shortestSpan() << std::endl;
-//	std::cout << sp.longestSpan() << std::endl;
-
+	
 	return 0;
 }

@@ -17,6 +17,9 @@
 #include <cstring>
 #include <algorithm>
 #include <vector>
+#include <cmath>
+#include <cstdlib>
+#include <complex>
 
 class Span
 {
@@ -32,8 +35,11 @@ class Span
 		Span &operator=(const Span &obj);
 
 		void addNumber(unsigned int num); 
-		//unsigned int shortestSpan();
-		//unsigned int longestSpan();
+		void addSoNumber(size_t count);
+		unsigned int shortestSpan();
+		unsigned int longestSpan();
+
+        const std::vector<unsigned int> getContainer() const ;
 
 	class notAdded : public std::exception
 	{
@@ -51,7 +57,6 @@ class Span
 		}
 	};
 
-
 	class longempty : public std::exception
 	{
 		const char *what() const throw()
@@ -60,5 +65,7 @@ class Span
 		}
 	};
 };
+
+std::ostream &operator<<(std::ostream &os, const Span &og);
 
 #endif
