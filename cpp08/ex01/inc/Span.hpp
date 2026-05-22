@@ -24,7 +24,7 @@
 class Span
 {
 	private:
-		std::vector<unsigned int> vect;
+		std::vector<int> vect;
 		unsigned int N;
 
 	public:
@@ -34,12 +34,13 @@ class Span
 		Span(const Span &obj);
 		Span &operator=(const Span &obj);
 
-		void addNumber(unsigned int num); 
+		void addNumber(int num); 
 		void addSoNumber(size_t count);
+		void addSoNumber(std::vector<int>::iterator _begin, std::vector<int>::iterator _end);
 		unsigned int shortestSpan();
 		unsigned int longestSpan();
 
-        const std::vector<unsigned int> getContainer() const ;
+        const std::vector<int> getContainer() const ;
 
 	class notAdded : public std::exception
 	{

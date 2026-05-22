@@ -22,8 +22,9 @@ int main()
 		sp.addNumber(17);
 		sp.addNumber(9);
 		sp.addNumber(11);
-		//sp.addNumber(15);
+		sp.addNumber(15);
 
+//		sp.addSoNumber(3);
 		std::cout << "Container: " << sp;
 		std::cout << std::endl;
 
