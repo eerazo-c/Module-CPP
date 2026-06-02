@@ -30,7 +30,10 @@ Span::Span(const Span &obj)
 
 Span& Span::operator=(const Span &obj)
 {
-	*this = obj;
+	if (this != &obj)
+	{
+		this->vect = obj.vect;
+	}
 	return (*this); //->agrege est erturn por el compilador quitar luego si falla
 }
 
@@ -40,11 +43,6 @@ void Span::addNumber(int num)
 		throw notAdded();
 
 	vect.push_back(num);
-	/*for (std::vector<int>::iterator it = vect.begin(); it != vect.end(); ++it)
-	{
-		std::cout << "vector :" << *it << std::endl;
-	}*/
-	
 }
 
 void Span::addSoNumber(size_t count)
