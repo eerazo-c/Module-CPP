@@ -22,10 +22,27 @@ MutantStack<T>::~MutantStack(){
 }
 
 template<typename T>
-MutantStack<T>::MutantStack(const MutantStack &obj){
+MutantStack<T>::MutantStack(const MutantStack &obj) : std::stack<T>(obj){
 
 }
 
 template<typename T>
-MutantStack<T>::MutantStack<T> &operator=(const MutantStack &obj){
+MutantStack<T> &MutantStack<T>::operator=(const MutantStack &obj)
+{
+	if (this != obj)
+		return (*this);
 }
+
+//iteratoors
+template<typename T>
+typename MutantStack<T>::iterator MutantStack<T>::begin()
+{
+	return (std::stack<T>::c.begin());
+}
+
+template<typename T>
+typename MutantStack<T>::iterator MutantStack<T>::end()
+{
+	return (std::stack<T>::c.end());
+}
+

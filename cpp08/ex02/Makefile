@@ -14,7 +14,7 @@ CC			=	c++
 CFLAGS		=	-Wall -Wextra -Werror -std=c++98 -I inc/
 OBJDIR		=	build
 SRCSDIR		=	src
-SRCS		=	main.cpp Span.cpp
+SRCS		=	main.cpp
 OBJS		=	$(addprefix $(OBJDIR)/, ${SRCS:.cpp=.o})
 
 PURPLE		=	\033[38;5;183m

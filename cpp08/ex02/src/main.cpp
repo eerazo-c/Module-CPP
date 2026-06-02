@@ -9,8 +9,12 @@
 /*   Updated: 2026/03/18 15:35:08 by elerazo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "MutantStack.hpp"
+#include <list>
+
 int main()
 {
+
 	MutantStack<int> mstack;
 	
 	mstack.push(5);
@@ -37,5 +41,33 @@ int main()
 
 	std::stack<int> s(mstack);
 
+/*	//list
+	
+	std::cout << "LIST" << std::endl;
+	
+	std::list<int> mlst;
+	
+	mlst.push_back(5);
+	mlst.push_back(17);
+	
+	std::cout << mlst.back() << std::endl;
+	mlst.pop_back();
+	std::cout << mlst.size() << std::endl;
+	mlst.push_back(3);
+	mlst.push_back(5);
+	mlst.push_back(737);
+
+	mlst.push_back(0);
+	std::list<int>::iterator it = mlst.begin();
+	std::list<int>::iterator ite = mlst.end();
+	++it;
+	--it;
+
+	while (it != ite)
+	{
+		std::cout << *it << std::endl;
+		++it;
+	}
+*/
 	return 0;
 }

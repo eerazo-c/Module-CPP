@@ -1,26 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   MutantStack.hpp                                           :+:      :+:    :+:   */
+/*   MutantStack.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elerazo- <elerazo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/02 20:53:40 by elerazo-          #+#    #+#             */
-/*   Updated: 2026/04/02 20:56:24 by elerazo-         ###   ########.fr       */
+/*   Created: 2026/06/02 17:53:34 by elerazo-          #+#    #+#             */
+/*   Updated: 2026/06/02 17:53:39 by elerazo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef MUTANTSTACK_HPP
 # define MUTANTSTACK_HPP
 
-#include <exception>
 #include <iostream>
 #include <cstring>
 #include <algorithm>
 #include <stack>
 #include <vector>
-#include <cmath>
-#include <cstdlib>
-#include <complex>
 
 template <typename T>
 class MutantStack : public std::stack<T>
@@ -31,11 +27,11 @@ class MutantStack : public std::stack<T>
 		MutantStack(const MutantStack &obj);
 		MutantStack<T> &operator=(const MutantStack &obj);
 
-		typedef typename std::stack<T>::containerStack::iterator it;
-		it begin();
-		it end();
+		typedef typename std::stack<T>::container_type::iterator iterator;
+		iterator begin();
+		iterator end();
 };
 
-#include "MutantStack.Tpp"
+#include "MutantStack.tpp"
 
 #endif
