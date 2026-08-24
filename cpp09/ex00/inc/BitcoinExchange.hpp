@@ -1,16 +1,15 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   easyfind.hpp                                       :+:      :+:    :+:   */
+/*   BitcoinExchange.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: elerazo- <elerazo-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: elerazo- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/01 16:25:31 by elerazo-          #+#    #+#             */
-/*   Updated: 2026/04/01 16:25:57 by elerazo-         ###   ########.fr       */
+/*   Created: 2026/08/24 20:37:19 by elerazo-          #+#    #+#             */
+/*   Updated: 2026/08/24 21:26:26 by elerazo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#ifndef EASYFIND_HPP
-# define EASYFIND_HPP
+#pragma once
 
 #include <exception>
 #include <iostream>
@@ -28,14 +27,3 @@ class notFound : public std::exception
 	}
 };
 
-template <typename T> typename T::iterator easyfind(T &container, int num)
-{
-	typename T::iterator it;
-	it = std::find(container.begin(), container.end(), num);
-	//std::cout << "container: " << *it << "numero: " << num << std::endl;
-	if (it == container.end())
-		throw notFound();
-	return (it);
-}
-
-#endif

@@ -6,15 +6,15 @@
 #    By: elerazo- <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/07 13:27:33 by elerazo-          #+#    #+#              #
-#    Updated: 2026/02/07 20:38:26 by elerazo          ###   ########.fr        #
+#    Updated: 2026/08/24 20:34:53 by elerazo-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
-NAME		=	EasyFind
+NAME		=	BitcoinExchange
 CC			=	c++
 CFLAGS		=	-Wall -Wextra -Werror -std=c++98 -I inc/
 OBJDIR		=	build
 SRCSDIR		=	src
-SRCS		=	main.cpp 
+SRCS		=	main.cpp BitcoinExchange.cpp
 OBJS		=	$(addprefix $(OBJDIR)/, ${SRCS:.cpp=.o})
 
 PURPLE		=	\033[38;5;183m
@@ -33,7 +33,7 @@ banner:
 	@echo "# ========================== #"
 	@printf "%b" "\n$(RESET)"
 
-$(OBJS): $(OBJDIR)/%.o : $(SRCSDIR)/%.cpp Makefile inc/easyfind.hpp | $(OBJDIR)
+$(OBJS): $(OBJDIR)/%.o : $(SRCSDIR)/%.cpp Makefile inc/BitcoinExchange.hpp | $(OBJDIR)
 	@printf "%-42b" "$(BLUE)compiling... $(PURPLE)$(@F)$(RESET)\n"
 	@$(CC) $(CFLAGS) -c $< -o $@
 
