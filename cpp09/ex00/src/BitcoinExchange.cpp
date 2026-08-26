@@ -6,7 +6,7 @@
 /*   By: elerazo- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/24 20:32:24 by elerazo-          #+#    #+#             */
-/*   Updated: 2026/08/25 21:10:14 by elerazo-         ###   ########.fr       */
+/*   Updated: 2026/08/26 17:09:25 by elerazo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "BitcoinExchange.hpp"
@@ -165,8 +165,52 @@ bool compareDates(int year, int month, int day, std::string date_match)
 
 void BitcoinExchange::conversion(std::map<int, std::string> &dq_out, unsigned long i)
 {
+	 (void)dq_out;
+	//get the date target
+	std::string dq_In = dq_in[i];
+	std::string::size_type pipe = dq_In.find("|");
+	std::string date_target = dq_In.substr(0, pipe - 1);
+	//trim date
+	int year_target(0);
+	int month_target(0);
+	int day_target(0);
 
+	trimDate(date_target, year_target, month_target, day_target);
 
+	std::map<int, std::string>::iterator it(dq_database.begin());
+	while (it != dq_database.end())
+	{
+		std::string db_line = it->second;
+		std::string::size_type coma = db_line.find(",");
+		std::string db_date = db_line.substr(0, coma);
+		if (!compareDates(year_target, month_target, day_target, db_date))
+			break ;
+		it++;
+	}
+	it--;
+
+	std::string value_target = dq_In.substr(pipe + 1, dq_In.size());
+
+	double num_target(0.0);
+	std::istringstream iss(value_target);
+	iss >> num_target;
+
+	std::string db_line = it->second;
+	std::string::size_type coma = db_line.find(",");
+	std::string value_match = db_line.substr(coma + 1, db_line.size());
+
+	double num_match(0.0);
+	std::istringstream is(value_match);
+	is >> num_match;
+
+	double conversion = num_target * num_match;
+	std::ostringstream oss;
+
+	oss << conversion;
+	std::string conver = oss.str();
+
+	std::string last = date_target + " =>" + value_target + " = " + conver;
+	dq_out.insert(std::make_pair(i, last));
 
 }
 

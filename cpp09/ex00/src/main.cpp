@@ -6,7 +6,7 @@
 /*   By: elerazo- <elerazo-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 15:32:45 by elerazo-          #+#    #+#             */
-/*   Updated: 2026/08/25 20:50:55 by elerazo-         ###   ########.fr       */
+/*   Updated: 2026/08/26 17:15:29 by elerazo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "BitcoinExchange.hpp"
@@ -39,7 +39,7 @@ int main(int ac, char **av)
 {
 	if(ac != 2)
 	{
-		std::cout << "\033[31m ERROR: \033[0m could not open file.\n"  << std::endl;
+		std::cout << "\033[31m ERROR: \033[0mcould not open file.\n"  << std::endl;
 		return (1);
 	}
 
