@@ -6,15 +6,15 @@
 #    By: elerazo- <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/07 13:27:33 by elerazo-          #+#    #+#              #
-#    Updated: 2026/08/28 15:59:53 by elerazo-         ###   ########.fr        #
+#    Updated: 2026/08/28 15:59:34 by elerazo-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
-NAME		=       RPN
+NAME		=       PmergeMe
 CC		=	c++
 CFLAGS		=	-Wall -Wextra -Werror -std=c++98 -I inc/
 OBJDIR		=	build
 SRCSDIR		=	src
-SRCS		=	main.cpp RPN.cpp
+SRCS		=	main.cpp PmergeMe.cpp
 OBJS		=	$(addprefix $(OBJDIR)/, ${SRCS:.cpp=.o})
 
 PURPLE		=	\033[38;5;183m
@@ -33,7 +33,7 @@ banner:
 	@echo "# ========================== #"
 	@printf "%b" "\n$(RESET)"
 
-$(OBJS): $(OBJDIR)/%.o : $(SRCSDIR)/%.cpp Makefile inc/RPN.hpp | $(OBJDIR)
+$(OBJS): $(OBJDIR)/%.o : $(SRCSDIR)/%.cpp Makefile inc/PmergeMe.hpp | $(OBJDIR)
 	@printf "%-42b" "$(BLUE)compiling... $(PURPLE)$(@F)$(RESET)\n"
 	@$(CC) $(CFLAGS) -c $< -o $@
 

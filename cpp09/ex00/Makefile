@@ -6,11 +6,11 @@
 #    By: elerazo- <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/07 13:27:33 by elerazo-          #+#    #+#              #
-#    Updated: 2026/08/25 16:40:52 by elerazo-         ###   ########.fr        #
+#    Updated: 2026/08/28 16:00:06 by elerazo-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 NAME		=	btc	
-CC			=	c++
+CC		=	c++
 CFLAGS		=	-Wall -Wextra -Werror -std=c++98 -I inc/
 OBJDIR		=	build
 SRCSDIR		=	src
