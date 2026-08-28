@@ -6,54 +6,33 @@
 /*   By: elerazo- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/27 15:51:43 by elerazo-          #+#    #+#             */
-/*   Updated: 2026/08/27 17:24:17 by elerazo-         ###   ########.fr       */
+/*   Updated: 2026/08/28 15:52:10 by elerazo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "RPN.hpp"
 
-RPN::RPRNP()
+RPN::RPN()
 {
 
 }
 
-RPN::RNP(const RNP &obj)
+RPN::RPN(const RPN &obj)
 {
-	*this = &obj;
+	*this = obj;
 }
 
-RPN::~RNP()
+RPN::~RPN()
 {
 
 }
 
-RPN &RNP::operator=(const RNP &obj)
+RPN &RPN::operator=(const RPN &obj)
 {
 	if(&obj != this)
 	{
 	
 	}
-	return (this);
-}
-
-void	RPN::performOperation(s_vec &cont)
-{
-	for (s_vec::iterator it(cont.begin()); it != cont.end(); it++)
-	{
-		if (findAllowedChars(*it, "*+/-"))
-		{
-			std::string symbol(*it);
-			if (!two_values(it, cont))
-			std::cout << "\033[31m ERROR: \033[0m \n"  << std::endl;
-				return(exit(1));
-//				return (printf("Error\n"), exit(1));
-			if (!which_oper(cont, it, symbol[0]))
-			std::cout << "\033[31m ERROR: \033[0m \n"  << std::endl;
-				return(exit(1));
-
-//				return (printf ("Error\n"), exit(1));
-			it = cont.begin();
-		}
-	}
+	return (*this);
 }
 
 void stoi_vec(s_vec str, i_vec &cont)
@@ -134,11 +113,8 @@ int div(i_vec num, unsigned long num_pos)
 		res = *i / *it;
 	else
 	{
-		std::cout << "\033[31m ERROR: \033[0mIlegal division between zero\n"  << std::endl;
+		std::cout << "\033[31m ERROR: \033[0mIlegal division between zero"  << std::endl;
 		exit(1);
-
-		//printf("Illegal division between zero\nFuck u bitch\n");
-		//exit(1);
 	}
 	return (res);
 }
@@ -198,4 +174,24 @@ bool two_values(s_vec::iterator pos, s_vec &c)
 		pos--;
 	}
 	return (true);
+}
+
+
+void	RPN::performOperation(s_vec &cont)
+{
+	for (s_vec::iterator it(cont.begin()); it != cont.end(); it++)
+	{
+		if (findAllowedChars(*it, "*+/-"))
+		{
+			std::string symbol(*it);
+			if (!two_values(it, cont)){
+			std::cout << "\033[31m ERROR \033[0m"  << std::endl;
+				return(exit(1));}
+			if (!which_oper(cont, it, symbol[0])){
+			std::cout << "\033[31m ERROR \033[0m"  << std::endl;
+				return(exit(1));}
+
+			it = cont.begin();
+		}
+	}
 }

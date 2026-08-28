@@ -6,7 +6,7 @@
 #    By: elerazo- <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/07 13:27:33 by elerazo-          #+#    #+#              #
-#    Updated: 2026/08/27 15:27:12 by elerazo-         ###   ########.fr        #
+#    Updated: 2026/08/28 15:15:28 by elerazo-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 NAME		=       RPN
@@ -14,7 +14,7 @@ CC			=	c++
 CFLAGS		=	-Wall -Wextra -Werror -std=c++98 -I inc/
 OBJDIR		=	build
 SRCSDIR		=	src
-SRCS		=	main.cpp RPNp
+SRCS		=	main.cpp RPN.cpp
 OBJS		=	$(addprefix $(OBJDIR)/, ${SRCS:.cpp=.o})
 
 PURPLE		=	\033[38;5;183m
